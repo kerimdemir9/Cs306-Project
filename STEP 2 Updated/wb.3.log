@@ -1,0 +1,123 @@
+16:55:10 [ERR][      Workbench]: Console redirection failed.
+16:55:10 [INF][      Workbench]: Starting up Workbench
+16:55:10 [INF][      Workbench]: Current environment:
+	Command line: "C:\Program Files\MySQL\MySQL Workbench 8.0\MySQLWorkbench.exe" 
+	CurrentDirectory: C:\Program Files\MySQL\MySQL Workbench 8.0
+	HasShutdownStarted: False
+	OSVersion: Microsoft Windows NT 6.2.9200.0
+	SystemDirectory: C:\WINDOWS\system32
+	TickCount: 435968312
+	UserInteractive: True
+	Version: 4.0.30319.42000
+	WorkingSet: 42487808
+16:55:10 [INF][      Workbench]: Environment variables:
+	SystemDrive = C:
+	ProgramFiles(x86) = C:\Program Files (x86)
+	Path = C:\Program Files\Eclipse Adoptium\jdk-17.0.6.10-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files (x86)\Scripts\;C:\Program Files (x86)\;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\MATLAB\R2022a\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\users\kerim\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages;C:\Users\kerim\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts;C:\msys64\mingw64\bin;C:\Users\kerim\AppData\Local\Microsoft\WindowsApps;C:\Users\kerim\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\kerim\AppData\Roaming\npm;C:\Users\kerim\.dotnet\tools;C:\Users\kerim\.nixpacks\bin;C:\Users\kerim\AppData\Local\Programs\MiKTeX\miktex\bin\x64\
+	ProgramW6432 = C:\Program Files
+	PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 141 Stepping 1, GenuineIntel
+	VBOX_MSI_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+	TMP = C:\Users\kerim\AppData\Local\Temp
+	PROCESSOR_ARCHITECTURE = AMD64
+	PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+	USERPROFILE = C:\Users\kerim
+	PROCESSOR_REVISION = 8d01
+	TEMP = C:\Users\kerim\AppData\Local\Temp
+	FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+	FPS_BROWSER_USER_PROFILE_STRING = Default
+	LOGONSERVER = \\KERIM-DEMIR9
+	USERNAME = Kerim
+	SystemRoot = C:\WINDOWS
+	SW_SIM_HYDRA = C:\Program Files\Common Files\SolidWorks Shared\Simulation Worker Agent\
+	OneDrive = C:\Users\kerim\OneDrive
+	VS110COMNTOOLS = C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\
+	CommonProgramFiles = C:\Program Files\Common Files
+	ZES_ENABLE_SYSMAN = 1
+	ProgramData = C:\ProgramData
+	HOMEPATH = \Users\kerim
+	COMPUTERNAME = KERIM-DEMIR9
+	CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+	ALLUSERSPROFILE = C:\ProgramData
+	CommonProgramW6432 = C:\Program Files\Common Files
+	SW_SIM_MPIT = INTELMPI
+	PT8HOME = C:\Program Files\Cisco Packet Tracer 8.2.0
+	SESSIONNAME = Console
+	DriverData = C:\Windows\System32\Drivers\DriverData
+	HOMEDRIVE = C:
+	windir = C:\WINDOWS
+	NUMBER_OF_PROCESSORS = 16
+	OS = Windows_NT
+	ProgramFiles = C:\Program Files
+	ComSpec = C:\WINDOWS\system32\cmd.exe
+	PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\PowerShell\Modules\
+	APPDATA = C:\Users\kerim\AppData\Roaming
+	USERDOMAIN = KERIM-DEMIR9
+	PROCESSOR_LEVEL = 6
+	SW_SIM_TEMP = C:\ProgramData\SOLIDWORKS\SW_net_sim_temp\
+	LOCALAPPDATA = C:\Users\kerim\AppData\Local
+	USERDOMAIN_ROAMINGPROFILE = KERIM-DEMIR9
+	PUBLIC = C:\Users\Public
+16:55:10 [INF][      Workbench]: Current version given by meta info is: 8.0.32
+16:55:10 [INF][      Workbench]: Setting PATH to: C:\WINDOWS\system32;C:\Program Files\Eclipse Adoptium\jdk-17.0.6.10-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files (x86)\Scripts\;C:\Program Files (x86)\;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\MATLAB\R2022a\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\msys64\mingw64\bin;C:\Users\kerim\AppData\Local\Microsoft\WindowsApps;C:\Users\kerim\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\kerim\AppData\Roaming\npm;C:\Users\kerim\.dotnet\tools;C:\Users\kerim\.nixpacks\bin;C:\Users\kerim\AppData\Local\Programs\MiKTeX\miktex\bin\x64\
+16:55:10 [INF][ mforms managed]: Initializing mforms wrapper
+16:55:10 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: C:\Program Files\MySQL\MySQL Workbench 8.0
+	plugin path: C:\Program Files\MySQL\MySQL Workbench 8.0
+	struct path: 
+	module path: C:\Program Files\MySQL\MySQL Workbench 8.0/modules
+	library path: C:\Program Files\MySQL\MySQL Workbench 8.0
+	user data dir: C:\Users\kerim\AppData\Roaming\MySQL\Workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+16:55:10 [INF][      WBContext]: WbContext::init
+16:55:10 [INF][            WBA]: Looking for extension modules for WBA...
+16:55:10 [INF][            WBA]: 0 extension modules found
+16:55:10 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+16:55:10 [WRN][            grt]: C:\Users\kerim\AppData\Roaming\MySQL\Workbench\connections.xml:26: link '{C66CE4C4-D426-4294-977D-6D5ADBE8C284}' <object GrtObject> key=owner could not be resolved
+16:55:10 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+16:55:12 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Windows version 8.0.32 CE build 2612062 (64 bit)
+	Configuration Directory: C:\Users\kerim\AppData\Roaming\MySQL\Workbench
+	Data Directory: C:\Program Files\MySQL\MySQL Workbench 8.0
+	Cairo Version: 1.17.6
+	OS: Microsoft Windows 10 Pro
+	CPU: 16x 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz, 31.8 GiB RAM
+	Active video adapter Intel(R) UHD Graphics
+	Installed video RAM: 1024 MB
+	Current video mode: 1920 x 1080 x 4294967296 colors
+	Used bit depth: 32
+	Driver version: 30.0.101.1338
+	Installed display drivers: C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_2bb98dc788e1ff31\igdumdim64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_2bb98dc788e1ff31\igd10iumd64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_2bb98dc788e1ff31\igd10iumd64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_2bb98dc788e1ff31\igd12umd64.dll
+	Current user language: Turkish (Turkey)
+
+16:55:12 [INF][      Workbench]: UI is up
+16:55:12 [INF][      Workbench]: Running the application
+16:55:15 [INF][SQL Editor Form]: Opened connection 'Local instance MySQL80' to MySQL Community Server - GPL version 8.0.32
+16:55:15 [INF][        WQE.net]: Launching SQL IDE
+16:55:15 [INF][        WQE.net]: SQL IDE UI is ready
+17:03:43 [ERR][SQL Editor Form]: Error Code: 1049. Unknown database '306_project'
+17:04:37 [INF][         Wizard]: Execute 'Prepare Import'
+17:04:38 [INF][         Wizard]: Starting thread for 'Import data file'
+17:04:56 [INF][         Wizard]: Execute 'Prepare Import'
+17:04:56 [INF][         Wizard]: Starting thread for 'Import data file'
+17:05:10 [INF][         Wizard]: Execute 'Prepare Import'
+17:05:10 [INF][         Wizard]: Starting thread for 'Import data file'
+17:05:10 [ERR][sqlide_power_import_export_be.py:start_import:486]: Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_1` FOREIGN KEY (`iso_code`) REFERENCES `countries` (`iso_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Row import failed with error: ('Cannot add or update a child row: a foreign key constraint fails (`306_project`.`locatedin`, CONSTRAINT `locatedin_ibfk_2` FOREIGN KEY (`continent_code`) REFERENCES `continents` (`continent_code`) ON DELETE CASCADE)', 1452)Execute 'Prepare Import'
+17:06:07 [INF][         Wizard]: Starting thread for 'Import data file'
+17:06:56 [INF][         Wizard]: Execute 'Prepare Import'
+17:06:56 [INF][         Wizard]: Starting thread for 'Import data file'
+17:07:55 [INF][         Wizard]: Execute 'Prepare Import'
+17:07:55 [INF][         Wizard]: Starting thread for 'Import data file'
+17:09:33 [INF][         Wizard]: Execute 'Prepare Import'
+17:09:33 [INF][         Wizard]: Starting thread for 'Import data file'
+17:10:11 [INF][         Wizard]: Execute 'Prepare Import'
+17:10:11 [INF][         Wizard]: Starting thread for 'Import data file'
+17:11:12 [INF][        WQE.net]: Shutting down SQL editor (Local instance MySQL80)
+17:11:12 [INF][      Workbench]: Shutting down Workbench
+17:11:12 [INF][ mforms managed]: Shutting down mforms wrapper
+17:11:12 [INF][      Workbench]: Done
