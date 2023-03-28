@@ -1,0 +1,2 @@
+We have only one error in the log file which is caused by an invisible character when a space character is at the end of the cell. We have figured out the error after we tried to import the data and imported 2 rows which are MDG and SVN by hand which equals the number of lines. 
+Thank you for your time.
