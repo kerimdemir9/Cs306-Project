@@ -1,0 +1,20 @@
+19:33:33 [ERR][SQL Editor Form]: Error Code: 1054. Unknown column 'h.stunting_wasting_total' in 'where clause'
+22:04:01 [ERR][SQL Editor Form]: Error Code: 1054. Unknown column 'country_name' in 'field list'
+22:08:30 [ERR][SQL Editor Form]: Error Code: 1241. Operand should contain 1 column(s)
+22:29:39 [ERR][SQL Editor Form]: Error Code: 1054. Unknown column 'deaths_by_discontiniued_breastfeeding' in 'field list'
+22:30:41 [ERR][SQL Editor Form]: Error Code: 1054. Unknown column 'deaths_by_discontiniued_breastfeeding' in 'field list'
+22:37:58 [ERR][SQL Editor Form]: Error Code: 1054. Unknown column 'minimum_death_discontiniued_breastfeeding' in 'check constraint value_constraint expression'
+22:38:24 [ERR][SQL Editor Form]: Error Code: 3816. An expression of a check constraint 'value_constraint' cannot refer to a user or system variable.
+22:40:20 [ERR][SQL Editor Form]: Error Code: 1054. Unknown column 'minimum_death_discontiniued_breastfeeding' in 'check constraint value_constraint expression'
+22:45:08 [ERR][SQL Editor Form]: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECLARE @max_death INT' at line 1
+22:46:15 [ERR][SQL Editor Form]: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECLARE @max_death INT' at line 1
+22:48:02 [ERR][SQL Editor Form]: Error Code: 3816. An expression of a check constraint 'value_constraint' cannot refer to a user or system variable.
+22:49:12 [ERR][SQL Editor Form]: Error Code: 3816. An expression of a check constraint 'value_constraint' cannot refer to a user or system variable.
+22:57:17 [ERR][SQL Editor Form]: Error Code: 1136. Column count doesn't match value count at row 1
+22:58:05 [ERR][SQL Editor Form]: Error Code: 3819. Check constraint 'value_constraint' is violated.
+23:02:44 [ERR][SQL Editor Form]: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6
+23:04:37 [ERR][SQL Editor Form]: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6
+23:05:53 [ERR][SQL Editor Form]: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table' at line 6
+23:15:51 [ERR][SQL Editor Form]: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
+23:16:23 [INF][      Workbench]: Shutting down Workbench
+23:16:24 [INF][      Workbench]: Workbench shutdown done

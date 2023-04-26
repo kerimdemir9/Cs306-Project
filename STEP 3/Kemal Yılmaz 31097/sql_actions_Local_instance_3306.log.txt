@@ -1,0 +1,500 @@
+[27, 19:13:33] ALTER TABLE health_deaths ADD COLUMN stunting_wasting_total INT: Running...
+[27, 19:13:33] ALTER TABLE health_deaths ADD COLUMN stunting_wasting_total INT: 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0
+[28, 19:13:33] SET SQL_SAFE_UPDATES = 0: Running...
+[28, 19:13:33] SET SQL_SAFE_UPDATES = 0: 0 row(s) affected
+[29, 19:13:33] UPDATE health_deaths SET stunting_wasting_total = (deaths_by_child_stunting + deaths_by_child_wasting): Running...
+[29, 19:13:33] UPDATE health_deaths SET stunting_wasting_total = (deaths_by_child_stunting + deaths_by_child_wasting): 6840 row(s) affected
+Rows matched: 6840  Changed: 6840  Warnings: 0
+[30, 19:13:33] CREATE VIEW high_death_countries AS
+SELECT h.iso_code, h.stunting_wasting_total, cn.continent_code
+FROM health_deaths h
+JOIN locatedin cn ON h.iso_code = cn.iso_code
+WHERE h.stunting_wasting_total > (
+	SELECT AVG(c2.stunting_wasting_total)
+    FROM health_deaths c2
+    JOIN locatedin cn2 ON c2.iso_code = cn2.iso_code
+    WHERE cn2.continent_code != 'REG'
+  )
+AND cn.continent_code != 'REG': Running...
+[30, 19:13:33] CREATE VIEW high_death_countries AS
+SELECT h.iso_code, h.stunting_wasting_total, cn.continent_code
+FROM health_deaths h
+JOIN locatedin cn ON h.iso_code = cn.iso_code
+WHERE h.stunting_wasting_total > (
+	SELECT AVG(c2.stunting_wasting_total)
+    FROM health_deaths c2
+    JOIN locatedin cn2 ON c2.iso_code = cn2.iso_code
+    WHERE cn2.continent_code != 'REG'
+  )
+AND cn.continent_code != 'REG': 0 row(s) affected
+[31, 19:16:22] SELECT * FROM high_death_countries
+LIMIT 0, 1000
+: Running...
+[31, 19:16:22] SELECT * FROM high_death_countries
+LIMIT 0, 1000
+: Fetching...
+[31, 19:16:22] SELECT * FROM high_death_countries
+LIMIT 0, 1000
+: 1000 row(s) returned
+[32, 19:18:09] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: Running...
+[32, 19:18:09] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: Fetching...
+[32, 19:18:09] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: 1090 row(s) returned
+[33, 19:28:45] ALTER VIEW high_death_countries AS
+SELECT h.iso_code, h.stunting_wasting_total, cn.continent_code, h.year
+FROM health_deaths h
+JOIN locatedin cn ON h.iso_code = cn.iso_code
+WHERE h.stunting_wasting_total > (
+	SELECT AVG(c2.stunting_wasting_total)
+    FROM health_deaths c2
+    JOIN locatedin cn2 ON c2.iso_code = cn2.iso_code
+    WHERE cn2.continent_code != 'REG'
+  )
+AND cn.continent_code != 'REG': Running...
+[33, 19:28:45] ALTER VIEW high_death_countries AS
+SELECT h.iso_code, h.stunting_wasting_total, cn.continent_code, h.year
+FROM health_deaths h
+JOIN locatedin cn ON h.iso_code = cn.iso_code
+WHERE h.stunting_wasting_total > (
+	SELECT AVG(c2.stunting_wasting_total)
+    FROM health_deaths c2
+    JOIN locatedin cn2 ON c2.iso_code = cn2.iso_code
+    WHERE cn2.continent_code != 'REG'
+  )
+AND cn.continent_code != 'REG': 0 row(s) affected
+[34, 19:28:45] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: Running...
+[34, 19:28:45] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: Fetching...
+[34, 19:28:45] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: 1090 row(s) returned
+[35, 19:33:33] CREATE VIEW high_death_countries_from_breastfeeding AS
+SELECT h.iso_code, h.deaths_by_discontinued_breastfeeding, cn.continent_code, h.year
+FROM diet_deaths h
+JOIN locatedin cn ON h.iso_code = cn.iso_code
+WHERE h.stunting_wasting_total > (
+	SELECT AVG(c2.stunting_wasting_total)
+    FROM health_deaths c2
+    JOIN locatedin cn2 ON c2.iso_code = cn2.iso_code
+    WHERE cn2.continent_code != 'REG'
+  )
+AND cn.continent_code != 'REG': Running...
+[35, 19:33:33] CREATE VIEW high_death_countries_from_breastfeeding AS
+SELECT h.iso_code, h.deaths_by_discontinued_breastfeeding, cn.continent_code, h.year
+FROM diet_deaths h
+JOIN locatedin cn ON h.iso_code = cn.iso_code
+WHERE h.stunting_wasting_total > (
+	SELECT AVG(c2.stunting_wasting_total)
+    FROM health_deaths c2
+    JOIN locatedin cn2 ON c2.iso_code = cn2.iso_code
+    WHERE cn2.continent_code != 'REG'
+  )
+AND cn.continent_code != 'REG': Error Code: 1054. Unknown column 'h.stunting_wasting_total' in 'where clause'
+[36, 19:35:37] CREATE VIEW high_death_countries_from_breastfeeding AS
+SELECT h.iso_code, h.deaths_by_discontinued_breastfeeding, cn.continent_code, h.year
+FROM diet_deaths h
+JOIN locatedin cn ON h.iso_code = cn.iso_code
+WHERE h.deaths_by_discontinued_breastfeeding > (
+	SELECT AVG(c2.deaths_by_discontinued_breastfeeding)
+    FROM diet_deaths c2
+    JOIN locatedin cn2 ON c2.iso_code = cn2.iso_code
+    WHERE cn2.continent_code != 'REG'
+  )
+AND cn.continent_code != 'REG': Running...
+[36, 19:35:37] CREATE VIEW high_death_countries_from_breastfeeding AS
+SELECT h.iso_code, h.deaths_by_discontinued_breastfeeding, cn.continent_code, h.year
+FROM diet_deaths h
+JOIN locatedin cn ON h.iso_code = cn.iso_code
+WHERE h.deaths_by_discontinued_breastfeeding > (
+	SELECT AVG(c2.deaths_by_discontinued_breastfeeding)
+    FROM diet_deaths c2
+    JOIN locatedin cn2 ON c2.iso_code = cn2.iso_code
+    WHERE cn2.continent_code != 'REG'
+  )
+AND cn.continent_code != 'REG': 0 row(s) affected
+[37, 19:35:37] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: Running...
+[37, 19:35:37] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: Fetching...
+[37, 19:35:37] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: 1090 row(s) returned
+[38, 19:36:19] SELECT * FROM high_death_countries_from_breastfeeding
+LIMIT 0, 5000
+: Running...
+[38, 19:36:19] SELECT * FROM high_death_countries_from_breastfeeding
+LIMIT 0, 5000
+: Fetching...
+[38, 19:36:19] SELECT * FROM high_death_countries_from_breastfeeding
+LIMIT 0, 5000
+: 1036 row(s) returned
+[39, 21:54:11] SELECT * FROM high_death_countries INTERSECT SELECT * FROM high_death_countries_from_breastfeeding: Running...
+[39, 21:54:11] SELECT * FROM high_death_countries INTERSECT SELECT * FROM high_death_countries_from_breastfeeding: Fetching...
+[39, 21:54:11] SELECT * FROM high_death_countries INTERSECT SELECT * FROM high_death_countries_from_breastfeeding: 0 row(s) returned
+[40, 21:55:24] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: Running...
+[40, 21:55:24] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: Fetching...
+[40, 21:55:24] SELECT * FROM high_death_countries
+LIMIT 0, 5000
+: 1090 row(s) returned
+[41, 21:55:41] SELECT * FROM high_death_countries_from_breastfeeding
+LIMIT 0, 5000
+: Running...
+[41, 21:55:41] SELECT * FROM high_death_countries_from_breastfeeding
+LIMIT 0, 5000
+: Fetching...
+[41, 21:55:41] SELECT * FROM high_death_countries_from_breastfeeding
+LIMIT 0, 5000
+: 1036 row(s) returned
+[42, 22:04:01] SELECT iso_code, year
+FROM high_death_countries
+WHERE iso_code and year IN (
+    SELECT country_name
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: Running...
+[42, 22:04:01] SELECT iso_code, year
+FROM high_death_countries
+WHERE iso_code and year IN (
+    SELECT country_name
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: Error Code: 1054. Unknown column 'country_name' in 'field list'
+[43, 22:04:23] SELECT iso_code, year
+FROM high_death_countries
+WHERE iso_code and year IN (
+    SELECT iso_code and year
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: Running...
+[43, 22:04:23] SELECT iso_code, year
+FROM high_death_countries
+WHERE iso_code and year IN (
+    SELECT iso_code and year
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: Fetching...
+[43, 22:04:23] SELECT iso_code, year
+FROM high_death_countries
+WHERE iso_code and year IN (
+    SELECT iso_code and year
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: 0 row(s) returned
+[44, 22:08:30] SELECT iso_code, year
+FROM high_death_countries
+WHERE iso_code and year IN (
+    SELECT (iso_code,year)
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: Running...
+[44, 22:08:30] SELECT iso_code, year
+FROM high_death_countries
+WHERE iso_code and year IN (
+    SELECT (iso_code,year)
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: Error Code: 1241. Operand should contain 1 column(s)
+[45, 22:09:20] SELECT iso_code, year
+FROM high_death_countries
+WHERE (iso_code,year) IN (
+    SELECT iso_code,year
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: Running...
+[45, 22:09:20] SELECT iso_code, year
+FROM high_death_countries
+WHERE (iso_code,year) IN (
+    SELECT iso_code,year
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: Fetching...
+[45, 22:09:20] SELECT iso_code, year
+FROM high_death_countries
+WHERE (iso_code,year) IN (
+    SELECT iso_code,year
+    FROM high_death_countries_from_breastfeeding
+)
+LIMIT 0, 5000
+: 905 row(s) returned
+[46, 22:11:11] SELECT iso_code, year
+FROM high_death_countries hdc
+WHERE EXISTS (
+    SELECT *
+    FROM high_death_countries_from_breastfeeding hdb
+    WHERE hdb.iso_code = hdc.iso_code AND hdb.year = hdc.year
+)
+LIMIT 0, 5000
+: Running...
+[46, 22:11:11] SELECT iso_code, year
+FROM high_death_countries hdc
+WHERE EXISTS (
+    SELECT *
+    FROM high_death_countries_from_breastfeeding hdb
+    WHERE hdb.iso_code = hdc.iso_code AND hdb.year = hdc.year
+)
+LIMIT 0, 5000
+: Fetching...
+[46, 22:11:11] SELECT iso_code, year
+FROM high_death_countries hdc
+WHERE EXISTS (
+    SELECT *
+    FROM high_death_countries_from_breastfeeding hdb
+    WHERE hdb.iso_code = hdc.iso_code AND hdb.year = hdc.year
+)
+LIMIT 0, 5000
+: 905 row(s) returned
+[47, 22:24:11] SELECT cd.iso_code,cd.year,cd.stunting_wasting_total,bf.iso_code,bf.year,bf.deaths_by_discontinued_breastfeeding
+FROM high_death_countries cd 
+JOIN high_death_countries_from_breastfeeding bf
+ON cd.iso_code = bf.iso_code and cd.year = bf.year
+LIMIT 0, 5000
+: Running...
+[47, 22:24:11] SELECT cd.iso_code,cd.year,cd.stunting_wasting_total,bf.iso_code,bf.year,bf.deaths_by_discontinued_breastfeeding
+FROM high_death_countries cd 
+JOIN high_death_countries_from_breastfeeding bf
+ON cd.iso_code = bf.iso_code and cd.year = bf.year
+LIMIT 0, 5000
+: Fetching...
+[47, 22:24:11] SELECT cd.iso_code,cd.year,cd.stunting_wasting_total,bf.iso_code,bf.year,bf.deaths_by_discontinued_breastfeeding
+FROM high_death_countries cd 
+JOIN high_death_countries_from_breastfeeding bf
+ON cd.iso_code = bf.iso_code and cd.year = bf.year
+LIMIT 0, 5000
+: 905 row(s) returned
+[48, 22:29:39] set @maximum_death_discontiniued_breastfeeding = (SELECT MAX(deaths_by_discontiniued_breastfeeding) FROM health_deaths): Running...
+[48, 22:29:39] set @maximum_death_discontiniued_breastfeeding = (SELECT MAX(deaths_by_discontiniued_breastfeeding) FROM health_deaths): Error Code: 1054. Unknown column 'deaths_by_discontiniued_breastfeeding' in 'field list'
+[49, 22:30:41] set @maximum_death_discontiniued_breastfeeding = (SELECT MAX(deaths_by_discontiniued_breastfeeding) FROM diet_deaths): Running...
+[49, 22:30:41] set @maximum_death_discontiniued_breastfeeding = (SELECT MAX(deaths_by_discontiniued_breastfeeding) FROM diet_deaths): Error Code: 1054. Unknown column 'deaths_by_discontiniued_breastfeeding' in 'field list'
+[50, 22:31:19] set @maximum_death_discontiniued_breastfeeding = (SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths): Running...
+[50, 22:31:19] set @maximum_death_discontiniued_breastfeeding = (SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths): 0 row(s) affected
+[51, 22:31:19] set @minimum_death_discontiniued_breastfeeding = (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths): Running...
+[51, 22:31:19] set @minimum_death_discontiniued_breastfeeding = (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths): 0 row(s) affected
+[52, 22:37:58] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (deaths_by_discontinued_breastfeeding >= minimum_death_discontiniued_breastfeeding and deaths_by_discontinued_breastfeeding <= maximum_death_discontiniued_breastfeeding ): Running...
+[52, 22:37:58] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (deaths_by_discontinued_breastfeeding >= minimum_death_discontiniued_breastfeeding and deaths_by_discontinued_breastfeeding <= maximum_death_discontiniued_breastfeeding ): Error Code: 1054. Unknown column 'minimum_death_discontiniued_breastfeeding' in 'check constraint value_constraint expression'
+[53, 22:38:24] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (deaths_by_discontinued_breastfeeding >= @minimum_death_discontiniued_breastfeeding and deaths_by_discontinued_breastfeeding <= @maximum_death_discontiniued_breastfeeding ): Running...
+[53, 22:38:24] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (deaths_by_discontinued_breastfeeding >= @minimum_death_discontiniued_breastfeeding and deaths_by_discontinued_breastfeeding <= @maximum_death_discontiniued_breastfeeding ): Error Code: 3816. An expression of a check constraint 'value_constraint' cannot refer to a user or system variable.
+[54, 22:40:20] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (deaths_by_discontinued_breastfeeding >= minimum_death_discontiniued_breastfeeding and deaths_by_discontinued_breastfeeding <= maximum_death_discontiniued_breastfeeding ): Running...
+[54, 22:40:20] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (deaths_by_discontinued_breastfeeding >= minimum_death_discontiniued_breastfeeding and deaths_by_discontinued_breastfeeding <= maximum_death_discontiniued_breastfeeding ): Error Code: 1054. Unknown column 'minimum_death_discontiniued_breastfeeding' in 'check constraint value_constraint expression'
+[55, 22:45:08] DECLARE @max_death INT: Running...
+[55, 22:45:08] DECLARE @max_death INT: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECLARE @max_death INT' at line 1
+[56, 22:46:15] SET SQL_SAFE_UPDATES = 0: Running...
+[56, 22:46:15] SET SQL_SAFE_UPDATES = 0: 0 row(s) affected
+[57, 22:46:15] DECLARE @max_death INT: Running...
+[57, 22:46:15] DECLARE @max_death INT: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECLARE @max_death INT' at line 1
+[58, 22:48:02] SET SQL_SAFE_UPDATES = 0: Running...
+[58, 22:48:02] SET SQL_SAFE_UPDATES = 0: 0 row(s) affected
+[59, 22:48:02] SET @max_death = (SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths): Running...
+[59, 22:48:02] SET @max_death = (SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths): 0 row(s) affected
+[60, 22:48:02] SET @min_death = (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths): Running...
+[60, 22:48:02] SET @min_death = (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths): 0 row(s) affected
+[61, 22:48:02] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (deaths_by_discontinued_breastfeeding >= @min_death and deaths_by_discontinued_breastfeeding <= @max_death ): Running...
+[61, 22:48:02] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (deaths_by_discontinued_breastfeeding >= @min_death and deaths_by_discontinued_breastfeeding <= @max_death ): Error Code: 3816. An expression of a check constraint 'value_constraint' cannot refer to a user or system variable.
+[62, 22:49:12] SET SQL_SAFE_UPDATES = 0: Running...
+[62, 22:49:12] SET SQL_SAFE_UPDATES = 0: 0 row(s) affected
+[63, 22:49:12] SET @max_death = (SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths): Running...
+[63, 22:49:12] SET @max_death = (SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths): 0 row(s) affected
+[64, 22:49:12] SET @min_death = (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths): Running...
+[64, 22:49:12] SET @min_death = (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths): 0 row(s) affected
+[65, 22:49:12] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (@max_death >= deaths_by_discontinued_breastfeeding and @min_death <= deaths_by_discontinued_breastfeeding ): Running...
+[65, 22:49:12] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (@max_death >= deaths_by_discontinued_breastfeeding and @min_death <= deaths_by_discontinued_breastfeeding ): Error Code: 3816. An expression of a check constraint 'value_constraint' cannot refer to a user or system variable.
+[66, 22:52:32] SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths
+LIMIT 0, 5000
+: Running...
+[66, 22:52:32] SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths
+LIMIT 0, 5000
+: Fetching...
+[66, 22:52:32] SELECT MAX(deaths_by_discontinued_breastfeeding) FROM diet_deaths
+LIMIT 0, 5000
+: 1 row(s) returned
+[67, 22:52:55] SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths
+LIMIT 0, 5000
+: Running...
+[67, 22:52:55] SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths
+LIMIT 0, 5000
+: Fetching...
+[67, 22:52:55] SELECT MIN(deaths_by_discontinued_breastfeeding) FROM diet_deaths
+LIMIT 0, 5000
+: 1 row(s) returned
+[68, 22:53:58] SET SQL_SAFE_UPDATES = 0: Running...
+[68, 22:53:58] SET SQL_SAFE_UPDATES = 0: 0 row(s) affected
+[69, 22:53:58] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (33106 >= deaths_by_discontinued_breastfeeding and 0 <= deaths_by_discontinued_breastfeeding ): Running...
+[69, 22:53:58] ALTER TABLE diet_deaths
+ADD CONSTRAINT value_constraint 
+CHECK (33106 >= deaths_by_discontinued_breastfeeding and 0 <= deaths_by_discontinued_breastfeeding ): 6840 row(s) affected
+Records: 6840  Duplicates: 0  Warnings: 0
+[70, 22:57:17] INSERT INTO health_deaths
+VALUES ('USA',2023,-1,-1,-1,-1,-1,-1,-1,-1,-1): Running...
+[70, 22:57:17] INSERT INTO health_deaths
+VALUES ('USA',2023,-1,-1,-1,-1,-1,-1,-1,-1,-1): Error Code: 1136. Column count doesn't match value count at row 1
+[71, 22:58:05] INSERT INTO diet_deaths
+VALUES ('USA',2023,-1,-1,-1,-1,-1,-1,-1,-1,-1): Running...
+[71, 22:58:05] INSERT INTO diet_deaths
+VALUES ('USA',2023,-1,-1,-1,-1,-1,-1,-1,-1,-1): Error Code: 3819. Check constraint 'value_constraint' is violated.
+[72, 23:02:44] CREATE TRIGGER my_insert_trigger
+BEFORE INSERT ON diet_deaths
+FOR EACH ROW
+BEGIN
+    IF NEW.deaths_by_discontinued_breastfeeding < MIN(deaths_by_discontinued_breastfeeding) THEN
+        SET NEW.deaths_by_discontinued_breastfeeding = MIN(deaths_by_discontinued_breastfeeding): Running...
+[72, 23:02:44] CREATE TRIGGER my_insert_trigger
+BEFORE INSERT ON diet_deaths
+FOR EACH ROW
+BEGIN
+    IF NEW.deaths_by_discontinued_breastfeeding < MIN(deaths_by_discontinued_breastfeeding) THEN
+        SET NEW.deaths_by_discontinued_breastfeeding = MIN(deaths_by_discontinued_breastfeeding): Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6
+[73, 23:04:37] CREATE TRIGGER my_insert_trigger
+BEFORE INSERT ON diet_deaths
+FOR EACH ROW
+BEGIN
+    IF NEW.deaths_by_discontinued_breastfeeding < (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table) THEN
+        SET NEW.deaths_by_discontinued_breastfeeding = (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table): Running...
+[73, 23:04:37] CREATE TRIGGER my_insert_trigger
+BEFORE INSERT ON diet_deaths
+FOR EACH ROW
+BEGIN
+    IF NEW.deaths_by_discontinued_breastfeeding < (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table) THEN
+        SET NEW.deaths_by_discontinued_breastfeeding = (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table): Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6
+[74, 23:05:53] CREATE TRIGGER my_insert_trigger
+BEFORE INSERT ON diet_deaths
+FOR EACH ROW
+BEGIN
+    IF NEW.deaths_by_discontinued_breastfeeding < (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table) THEN
+        SET NEW.deaths_by_discontinued_breastfeeding = SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table: Running...
+[74, 23:05:53] CREATE TRIGGER my_insert_trigger
+BEFORE INSERT ON diet_deaths
+FOR EACH ROW
+BEGIN
+    IF NEW.deaths_by_discontinued_breastfeeding < (SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table) THEN
+        SET NEW.deaths_by_discontinued_breastfeeding = SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT MIN(deaths_by_discontinued_breastfeeding) FROM my_table' at line 6
+[75, 23:15:51] CREATE TRIGGER my_insert_trigger
+BEFORE INSERT ON diet_deaths
+FOR EACH ROW
+BEGIN
+    DECLARE min_value INT: Running...
+[75, 23:15:51] CREATE TRIGGER my_insert_trigger
+BEFORE INSERT ON diet_deaths
+FOR EACH ROW
+BEGIN
+    DECLARE min_value INT: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
+[1, 23:35:39] DROP TRIGGER IF EXISTS my_insert_trigger: Running...
+[1, 23:35:39] DROP TRIGGER IF EXISTS my_insert_trigger: 0 row(s) affected, 1 warning(s):
+1360 Trigger does not exist
+[2, 23:35:39] DROP TRIGGER IF EXISTS my_update_trigger: Running...
+[2, 23:35:39] DROP TRIGGER IF EXISTS my_update_trigger: 0 row(s) affected, 1 warning(s):
+1360 Trigger does not exist
+[3, 23:35:50] DROP TRIGGER IF EXISTS my_insert_trigger: Running...
+[3, 23:35:50] DROP TRIGGER IF EXISTS my_insert_trigger: 0 row(s) affected, 1 warning(s):
+1360 Trigger does not exist
+[4, 23:35:50] DROP TRIGGER IF EXISTS my_update_trigger: Running...
+[4, 23:35:50] DROP TRIGGER IF EXISTS my_update_trigger: 0 row(s) affected, 1 warning(s):
+1360 Trigger does not exist
+[5, 23:38:55] DROP Procedure IF EXISTS breast_feeding_deaths_total: Running...
+[5, 23:38:55] DROP Procedure IF EXISTS breast_feeding_deaths_total: 0 row(s) affected, 1 warning(s):
+1305 PROCEDURE cs_306.breast_feeding_deaths_total does not exist
+[6, 23:38:55] CREATE PROCEDURE breast_feeding_deaths_every_year(IN param VARCHAR(3))
+BEGIN
+	SELECT year,iso_code
+    FROM diet_deaths 
+    WHERE iso_code = param;
+
+END: Running...
+[6, 23:38:55] CREATE PROCEDURE breast_feeding_deaths_every_year(IN param VARCHAR(3))
+BEGIN
+	SELECT year,iso_code
+    FROM diet_deaths 
+    WHERE iso_code = param;
+
+END: 0 row(s) affected
+[7, 23:40:22] CALL get_death_numbers("AFG"): Running...
+[7, 23:40:22] CALL get_death_numbers("AFG"): Error Code: 1305. PROCEDURE cs_306.get_death_numbers does not exist
+[8, 23:41:03] CALL breast_feeding_deaths_every_year("AFG"): Running...
+[8, 23:41:03] CALL breast_feeding_deaths_every_year("AFG"): Fetching...
+[8, 23:41:03] CALL breast_feeding_deaths_every_year("AFG"): 30 row(s) returned
+[9, 23:42:31] DROP Procedure IF EXISTS breast_feeding_deaths_total: Running...
+[9, 23:42:31] DROP Procedure IF EXISTS breast_feeding_deaths_total: 0 row(s) affected, 1 warning(s):
+1305 PROCEDURE cs_306.breast_feeding_deaths_total does not exist
+[10, 23:42:31] CREATE PROCEDURE breast_feeding_deaths_every_year(IN param VARCHAR(3))
+BEGIN
+	SELECT year,iso_code,deaths_by_discontinued_breastfeeding
+    FROM diet_deaths 
+    WHERE iso_code = param;
+
+END: Running...
+[10, 23:42:31] CREATE PROCEDURE breast_feeding_deaths_every_year(IN param VARCHAR(3))
+BEGIN
+	SELECT year,iso_code,deaths_by_discontinued_breastfeeding
+    FROM diet_deaths 
+    WHERE iso_code = param;
+
+END: Error Code: 1304. PROCEDURE breast_feeding_deaths_every_year already exists
+[11, 23:43:13] DROP Procedure IF EXISTS breast_feeding_deaths_every_year: Running...
+[11, 23:43:13] DROP Procedure IF EXISTS breast_feeding_deaths_every_year: 0 row(s) affected
+[12, 23:43:13] CREATE PROCEDURE breast_feeding_deaths_every_year(IN param VARCHAR(3))
+BEGIN
+	SELECT year,iso_code,deaths_by_discontinued_breastfeeding
+    FROM diet_deaths 
+    WHERE iso_code = param;
+
+END: Running...
+[12, 23:43:13] CREATE PROCEDURE breast_feeding_deaths_every_year(IN param VARCHAR(3))
+BEGIN
+	SELECT year,iso_code,deaths_by_discontinued_breastfeeding
+    FROM diet_deaths 
+    WHERE iso_code = param;
+
+END: 0 row(s) affected
+[13, 23:43:13] CALL breast_feeding_deaths_every_year("AFG"): Running...
+[13, 23:43:13] CALL breast_feeding_deaths_every_year("AFG"): Fetching...
+[13, 23:43:13] CALL breast_feeding_deaths_every_year("AFG"): 30 row(s) returned
+[14, 23:43:13] CALL breast_feeding_deaths_every_year("USA"): Running...
+[14, 23:43:13] CALL breast_feeding_deaths_every_year("USA"): Fetching...
+[14, 23:43:13] CALL breast_feeding_deaths_every_year("USA"): 30 row(s) returned
+[15, 23:43:13] CALL breast_feeding_deaths_every_year("TUR"): Running...
+[15, 23:43:13] CALL breast_feeding_deaths_every_year("TUR"): Fetching...
+[15, 23:43:13] CALL breast_feeding_deaths_every_year("TUR"): 30 row(s) returned

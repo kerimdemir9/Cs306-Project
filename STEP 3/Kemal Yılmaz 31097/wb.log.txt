@@ -1,0 +1,46 @@
+23:16:26 [INF][      Workbench]: Starting up Workbench
+23:16:26 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: /Applications/MySQLWorkbench.app/Contents/Resources
+	plugin path: /Applications/MySQLWorkbench.app/Contents/PlugIns
+	struct path: /Applications/MySQLWorkbench.app/Contents/Resources/grt
+	module path: /Applications/MySQLWorkbench.app/Contents/PlugIns:/Applications/MySQLWorkbench.app/Contents/Resources/plugins
+	library path: /Applications/MySQLWorkbench.app/Contents/Resources/libraries
+	user data dir: /Users/crunky/Library/Application Support/MySQL/Workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+23:16:26 [INF][      WBContext]: WbContext::init
+23:16:27 [INF][            WBA]: Looking for extension modules for WBA...
+23:16:27 [INF][            WBA]: 0 extension modules found
+23:16:27 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+23:16:27 [WRN][            grt]: /Users/crunky/Library/Application Support/MySQL/Workbench/connections.xml:18: link '6CBD1DFA-5837-4D8C-9013-2A29DE81804D' <object GrtObject> key=owner could not be resolved
+23:16:27 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+23:16:27 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for macOS version 8.0.31 CE build 2235049 (64 bit)
+	Configuration Directory: /Users/crunky/Library/Application Support/MySQL/Workbench
+	Data Directory: /Applications/MySQLWorkbench.app/Contents/Resources
+	Cairo Version: 1.17.4
+	OS: unknown
+	CPU: 8x Apple M1 - 8.00GiB RAM
+No video adapter info available
+
+23:16:27 [WRN][       WBModule]: OS detection failed, skipping OS support check. OS string: 'unknown'
+23:16:29 [INF][SQL Editor Form]: Opened connection 'Local instance 3306' to MySQL Community Server - GPL version 8.0.32
+23:35:39 [WRN][SQL Editor Form]: 0 row(s) affected, 1 warning(s):
+1360 Trigger does not exist
+23:35:39 [WRN][SQL Editor Form]: 0 row(s) affected, 1 warning(s):
+1360 Trigger does not exist
+23:35:50 [WRN][SQL Editor Form]: 0 row(s) affected, 1 warning(s):
+1360 Trigger does not exist
+23:35:50 [WRN][SQL Editor Form]: 0 row(s) affected, 1 warning(s):
+1360 Trigger does not exist
+23:38:55 [WRN][SQL Editor Form]: 0 row(s) affected, 1 warning(s):
+1305 PROCEDURE cs_306.breast_feeding_deaths_total does not exist
+23:40:22 [ERR][SQL Editor Form]: Error Code: 1305. PROCEDURE cs_306.get_death_numbers does not exist
+23:42:31 [WRN][SQL Editor Form]: 0 row(s) affected, 1 warning(s):
+1305 PROCEDURE cs_306.breast_feeding_deaths_total does not exist
+23:42:31 [ERR][SQL Editor Form]: Error Code: 1304. PROCEDURE breast_feeding_deaths_every_year already exists
