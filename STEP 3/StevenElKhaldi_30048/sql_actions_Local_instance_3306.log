@@ -1,0 +1,463 @@
+[1, 21:33:43] use 306_project: Running...
+[1, 21:33:43] use 306_project: 0 row(s) affected
+[2, 21:33:48] CREATE VIEW above_average_diet_deaths_by_nutritional_deficiencies AS
+SELECT count(*) as num_years, iso_code from diet_deaths
+WHERE deaths_by_nutritional_deficiencies > (select avg(deaths_by_nutritional_deficiencies) from diet_deaths)
+GROUP BY iso_code: Running...
+[2, 21:33:48] CREATE VIEW above_average_diet_deaths_by_nutritional_deficiencies AS
+SELECT count(*) as num_years, iso_code from diet_deaths
+WHERE deaths_by_nutritional_deficiencies > (select avg(deaths_by_nutritional_deficiencies) from diet_deaths)
+GROUP BY iso_code: 0 row(s) affected
+[3, 21:33:48] CREATE VIEW above_average_diet_deaths_by_diet_low_in_fruits AS
+SELECT count(*) AS num_years, iso_code from diet_deaths
+WHERE deaths_by_diet_low_in_fruits > (select avg(deaths_by_diet_low_in_fruits) from diet_deaths)
+GROUP BY iso_code: Running...
+[3, 21:33:49] CREATE VIEW above_average_diet_deaths_by_diet_low_in_fruits AS
+SELECT count(*) AS num_years, iso_code from diet_deaths
+WHERE deaths_by_diet_low_in_fruits > (select avg(deaths_by_diet_low_in_fruits) from diet_deaths)
+GROUP BY iso_code: 0 row(s) affected
+[4, 21:33:49] CREATE VIEW above_average_diet_deaths_by_diet_low_in_whole_grains AS
+SELECT count(*) AS num_years, iso_code from diet_deaths
+WHERE deaths_by_diet_low_in_whole_grains > (select avg(deaths_by_diet_low_in_whole_grains) from diet_deaths)
+GROUP BY iso_code: Running...
+[4, 21:33:49] CREATE VIEW above_average_diet_deaths_by_diet_low_in_whole_grains AS
+SELECT count(*) AS num_years, iso_code from diet_deaths
+WHERE deaths_by_diet_low_in_whole_grains > (select avg(deaths_by_diet_low_in_whole_grains) from diet_deaths)
+GROUP BY iso_code: 0 row(s) affected
+[5, 21:33:55] CREATE VIEW nutritional_deficiencies_diet_deaths_period AS
+SELECT SUM(deaths_by_nutritional_deficiencies) AS total_deaths_by_nutritional_deficiencies,
+AVG(deaths_by_nutritional_deficiencies) AS avg_deaths_by_nutritional_deficiencies_per_country,
+COUNT(*) AS num_countries,
+year
+FROM diet_deaths
+GROUP BY year: Running...
+[5, 21:33:55] CREATE VIEW nutritional_deficiencies_diet_deaths_period AS
+SELECT SUM(deaths_by_nutritional_deficiencies) AS total_deaths_by_nutritional_deficiencies,
+AVG(deaths_by_nutritional_deficiencies) AS avg_deaths_by_nutritional_deficiencies_per_country,
+COUNT(*) AS num_countries,
+year
+FROM diet_deaths
+GROUP BY year: 0 row(s) affected
+[6, 21:33:59] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+EXCEPT
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_whole_grains B: Running...
+[6, 21:33:59] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+EXCEPT
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_whole_grains B: Fetching...
+[6, 21:33:59] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+EXCEPT
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_whole_grains B: 13 row(s) returned
+[7, 21:33:59] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+LEFT OUTER JOIN above_average_diet_deaths_by_diet_low_in_whole_grains B
+ON A.iso_code = B.iso_code
+WHERE B.iso_code IS NULL
+LIMIT 0, 1000
+: Running...
+[7, 21:33:59] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+LEFT OUTER JOIN above_average_diet_deaths_by_diet_low_in_whole_grains B
+ON A.iso_code = B.iso_code
+WHERE B.iso_code IS NULL
+LIMIT 0, 1000
+: Fetching...
+[7, 21:33:59] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+LEFT OUTER JOIN above_average_diet_deaths_by_diet_low_in_whole_grains B
+ON A.iso_code = B.iso_code
+WHERE B.iso_code IS NULL
+LIMIT 0, 1000
+: 13 row(s) returned
+[8, 21:34:38] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+WHERE A.iso_code in (
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_fruits B
+)
+LIMIT 0, 1000
+: Running...
+[8, 21:34:38] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+WHERE A.iso_code in (
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_fruits B
+)
+LIMIT 0, 1000
+: Fetching...
+[8, 21:34:38] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+WHERE A.iso_code in (
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_fruits B
+)
+LIMIT 0, 1000
+: 21 row(s) returned
+[9, 21:34:38] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+WHERE EXISTS (
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_fruits B
+WHERE A.iso_code = B.iso_code
+)
+LIMIT 0, 1000
+: Running...
+[9, 21:34:38] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+WHERE EXISTS (
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_fruits B
+WHERE A.iso_code = B.iso_code
+)
+LIMIT 0, 1000
+: Fetching...
+[9, 21:34:38] SELECT A.iso_code
+FROM above_average_diet_deaths_by_nutritional_deficiencies A
+WHERE EXISTS (
+SELECT B.iso_code
+FROM above_average_diet_deaths_by_diet_low_in_fruits B
+WHERE A.iso_code = B.iso_code
+)
+LIMIT 0, 1000
+: 21 row(s) returned
+[10, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, AVG(D.deaths_by_diet_low_in_fruits) as yearly_avg_deaths_by_diet_low_in_fruits
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code
+HAVING AVG(D.deaths_by_diet_low_in_fruits) > (SELECT AVG(deaths_by_diet_low_in_fruits) FROM diet_deaths)
+LIMIT 0, 1000
+: Running...
+[10, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, AVG(D.deaths_by_diet_low_in_fruits) as yearly_avg_deaths_by_diet_low_in_fruits
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code
+HAVING AVG(D.deaths_by_diet_low_in_fruits) > (SELECT AVG(deaths_by_diet_low_in_fruits) FROM diet_deaths)
+LIMIT 0, 1000
+: Fetching...
+[10, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, AVG(D.deaths_by_diet_low_in_fruits) as yearly_avg_deaths_by_diet_low_in_fruits
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code
+HAVING AVG(D.deaths_by_diet_low_in_fruits) > (SELECT AVG(deaths_by_diet_low_in_fruits) FROM diet_deaths)
+LIMIT 0, 1000
+: 25 row(s) returned
+[11, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, MIN(D.deaths_by_nutritional_deficiencies) as min_deaths_by_nutritional_deficiencies, D.year as year
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code, D.year
+HAVING MIN(D.deaths_by_nutritional_deficiencies) = (SELECT MIN(deaths_by_nutritional_deficiencies) FROM diet_deaths)
+LIMIT 0, 1000
+: Running...
+[11, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, MIN(D.deaths_by_nutritional_deficiencies) as min_deaths_by_nutritional_deficiencies, D.year as year
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code, D.year
+HAVING MIN(D.deaths_by_nutritional_deficiencies) = (SELECT MIN(deaths_by_nutritional_deficiencies) FROM diet_deaths)
+LIMIT 0, 1000
+: Fetching...
+[11, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, MIN(D.deaths_by_nutritional_deficiencies) as min_deaths_by_nutritional_deficiencies, D.year as year
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code, D.year
+HAVING MIN(D.deaths_by_nutritional_deficiencies) = (SELECT MIN(deaths_by_nutritional_deficiencies) FROM diet_deaths)
+LIMIT 0, 1000
+: 283 row(s) returned
+[12, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, MAX(D.deaths_by_nutritional_deficiencies) as max_deaths_by_nutritional_deficiencies, D.year as year
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code, D.year
+HAVING MAX(D.deaths_by_nutritional_deficiencies) = (SELECT MAX(deaths_by_nutritional_deficiencies) FROM diet_deaths)
+LIMIT 0, 1000
+: Running...
+[12, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, MAX(D.deaths_by_nutritional_deficiencies) as max_deaths_by_nutritional_deficiencies, D.year as year
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code, D.year
+HAVING MAX(D.deaths_by_nutritional_deficiencies) = (SELECT MAX(deaths_by_nutritional_deficiencies) FROM diet_deaths)
+LIMIT 0, 1000
+: Fetching...
+[12, 21:34:56] SELECT C.name as country, D.iso_code as iso_code, MAX(D.deaths_by_nutritional_deficiencies) as max_deaths_by_nutritional_deficiencies, D.year as year
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY C.name, D.iso_code, D.year
+HAVING MAX(D.deaths_by_nutritional_deficiencies) = (SELECT MAX(deaths_by_nutritional_deficiencies) FROM diet_deaths)
+LIMIT 0, 1000
+: 1 row(s) returned
+[13, 21:34:56] SELECT count(*) AS times_below_avg_deaths_by_iron_deficiency, C.name as country, D.iso_code as iso_code
+FROM diet_deaths D
+JOIN countries C on D.iso_code = C.iso_code
+WHERE D.deaths_by_iron_deficiency < (SELECT AVG(deaths_by_iron_deficiency) from diet_deaths)
+GROUP BY C.name, D.iso_code
+LIMIT 0, 1000
+: Running...
+[13, 21:34:56] SELECT count(*) AS times_below_avg_deaths_by_iron_deficiency, C.name as country, D.iso_code as iso_code
+FROM diet_deaths D
+JOIN countries C on D.iso_code = C.iso_code
+WHERE D.deaths_by_iron_deficiency < (SELECT AVG(deaths_by_iron_deficiency) from diet_deaths)
+GROUP BY C.name, D.iso_code
+LIMIT 0, 1000
+: Fetching...
+[13, 21:34:56] SELECT count(*) AS times_below_avg_deaths_by_iron_deficiency, C.name as country, D.iso_code as iso_code
+FROM diet_deaths D
+JOIN countries C on D.iso_code = C.iso_code
+WHERE D.deaths_by_iron_deficiency < (SELECT AVG(deaths_by_iron_deficiency) from diet_deaths)
+GROUP BY C.name, D.iso_code
+LIMIT 0, 1000
+: 211 row(s) returned
+[14, 21:34:56] SELECT D.year as year, SUM(D.deaths_by_nutritional_deficiencies) AS total_deaths_by_nutritional_deficiencies, 
+       (SELECT C.name FROM countries C
+        JOIN diet_deaths D1 ON C.iso_code = D1.iso_code
+        WHERE D1.year = D.year AND D1.iso_code != "WWW"
+        ORDER BY D1.deaths_by_nutritional_deficiencies DESC 
+        LIMIT 1) AS max_deaths_country
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY D.year
+LIMIT 0, 1000
+: Running...
+[14, 21:34:56] SELECT D.year as year, SUM(D.deaths_by_nutritional_deficiencies) AS total_deaths_by_nutritional_deficiencies, 
+       (SELECT C.name FROM countries C
+        JOIN diet_deaths D1 ON C.iso_code = D1.iso_code
+        WHERE D1.year = D.year AND D1.iso_code != "WWW"
+        ORDER BY D1.deaths_by_nutritional_deficiencies DESC 
+        LIMIT 1) AS max_deaths_country
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY D.year
+LIMIT 0, 1000
+: Fetching...
+[14, 21:34:56] SELECT D.year as year, SUM(D.deaths_by_nutritional_deficiencies) AS total_deaths_by_nutritional_deficiencies, 
+       (SELECT C.name FROM countries C
+        JOIN diet_deaths D1 ON C.iso_code = D1.iso_code
+        WHERE D1.year = D.year AND D1.iso_code != "WWW"
+        ORDER BY D1.deaths_by_nutritional_deficiencies DESC 
+        LIMIT 1) AS max_deaths_country
+FROM diet_deaths D
+JOIN countries C ON D.iso_code = C.iso_code
+GROUP BY D.year
+LIMIT 0, 1000
+: 30 row(s) returned
+[15, 21:58:03] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[15, 21:58:03] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[15, 21:58:03] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[16, 21:58:03] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[16, 21:58:03] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[16, 21:58:03] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[17, 21:58:03] ALTER TABLE diet_deaths ADD CONSTRAINT deaths_by_nutritional_deficiencies_range CHECK (deaths_by_nutritional_deficiencies >= 0 AND deaths_by_nutritional_deficiencies <= 757152): Running...
+[17, 21:58:03] ALTER TABLE diet_deaths ADD CONSTRAINT deaths_by_nutritional_deficiencies_range CHECK (deaths_by_nutritional_deficiencies >= 0 AND deaths_by_nutritional_deficiencies <= 757152): Error Code: 3822. Duplicate check constraint name 'deaths_by_nutritional_deficiencies_range'.
+[18, 21:59:04] use 306_project: Running...
+[18, 21:59:04] use 306_project: 0 row(s) affected
+[19, 21:59:04] DROP CONSTRAINT 306_project.deaths_by_nutritional_deficiencies_range: Running...
+[19, 21:59:04] DROP CONSTRAINT 306_project.deaths_by_nutritional_deficiencies_range: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT 306_project.deaths_by_nutritional_deficiencies_range' at line 1
+[20, 21:59:44] use 306_project: Running...
+[20, 21:59:44] use 306_project: 0 row(s) affected
+[21, 21:59:44] ALTER TABLE diet_deaths DROP UNIQUE deaths_by_nutritional_deficiencies_range: Running...
+[21, 21:59:44] ALTER TABLE diet_deaths DROP UNIQUE deaths_by_nutritional_deficiencies_range: Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UNIQUE deaths_by_nutritional_deficiencies_range' at line 1
+[22, 21:59:54] use 306_project: Running...
+[22, 21:59:54] use 306_project: 0 row(s) affected
+[23, 21:59:54] ALTER TABLE diet_deaths DROP CONSTRAINT deaths_by_nutritional_deficiencies_range: Running...
+[23, 21:59:54] ALTER TABLE diet_deaths DROP CONSTRAINT deaths_by_nutritional_deficiencies_range: 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0
+[24, 22:00:01] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[24, 22:00:01] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[24, 22:00:01] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[25, 22:00:01] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[25, 22:00:01] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[25, 22:00:01] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[26, 22:00:01] ALTER TABLE diet_deaths ADD CONSTRAINT deaths_by_nutritional_deficiencies_range CHECK (deaths_by_nutritional_deficiencies >= 0 AND deaths_by_nutritional_deficiencies <= 757152): Running...
+[26, 22:00:01] ALTER TABLE diet_deaths ADD CONSTRAINT deaths_by_nutritional_deficiencies_range CHECK (deaths_by_nutritional_deficiencies >= 0 AND deaths_by_nutritional_deficiencies <= 757152): 6840 row(s) affected
+Records: 6840  Duplicates: 0  Warnings: 0
+[27, 22:00:01] INSERT INTO diet_deaths (iso_code, deaths_by_nutritional_deficiencies, year) VALUES ("LEB", 757153, 1990): Running...
+[27, 22:00:01] INSERT INTO diet_deaths (iso_code, deaths_by_nutritional_deficiencies, year) VALUES ("LEB", 757153, 1990): Error Code: 3819. Check constraint 'deaths_by_nutritional_deficiencies_range' is violated.
+[28, 22:00:39] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[28, 22:00:39] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[28, 22:00:39] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[29, 22:00:39] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[29, 22:00:39] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[29, 22:00:39] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[30, 22:00:39] ALTER TABLE diet_deaths ADD CONSTRAINT deaths_by_nutritional_deficiencies_range CHECK (deaths_by_nutritional_deficiencies >= 0 AND deaths_by_nutritional_deficiencies <= 757152): Running...
+[30, 22:00:39] ALTER TABLE diet_deaths ADD CONSTRAINT deaths_by_nutritional_deficiencies_range CHECK (deaths_by_nutritional_deficiencies >= 0 AND deaths_by_nutritional_deficiencies <= 757152): Error Code: 3822. Duplicate check constraint name 'deaths_by_nutritional_deficiencies_range'.
+[31, 22:00:42] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[31, 22:00:42] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[31, 22:00:42] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[32, 22:00:42] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[32, 22:00:42] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[32, 22:00:42] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[33, 22:00:42] ALTER TABLE diet_deaths ADD CONSTRAINT deaths_by_nutritional_deficiencies_range CHECK (deaths_by_nutritional_deficiencies >= 0 AND deaths_by_nutritional_deficiencies <= 757152): Running...
+[33, 22:00:42] ALTER TABLE diet_deaths ADD CONSTRAINT deaths_by_nutritional_deficiencies_range CHECK (deaths_by_nutritional_deficiencies >= 0 AND deaths_by_nutritional_deficiencies <= 757152): Error Code: 3822. Duplicate check constraint name 'deaths_by_nutritional_deficiencies_range'.
+[34, 22:00:50] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[34, 22:00:50] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[34, 22:00:50] SELECT min(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[35, 22:00:50] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Running...
+[35, 22:00:50] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[35, 22:00:50] SELECT max(deaths_by_nutritional_deficiencies)
+FROM diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[36, 22:00:50] # before insert trigger
+CREATE TRIGGER fix_deaths_by_nutritional_deficiencies_before_insert
+BEFORE INSERT
+ON diet_deaths FOR EACH ROW
+BEGIN
+  IF NEW.deaths_by_nutritional_deficiencies < 0 THEN
+    SET NEW.deaths_by_nutritional_deficiencies = 0;
+  ELSEIF NEW.deaths_by_nutritional_deficiencies > 757152 THEN
+    SET NEW.deaths_by_nutritional_deficiencies = 757152;
+  END IF;
+END: Running...
+[36, 22:00:50] # before insert trigger
+CREATE TRIGGER fix_deaths_by_nutritional_deficiencies_before_insert
+BEFORE INSERT
+ON diet_deaths FOR EACH ROW
+BEGIN
+  IF NEW.deaths_by_nutritional_deficiencies < 0 THEN
+    SET NEW.deaths_by_nutritional_deficiencies = 0;
+  ELSEIF NEW.deaths_by_nutritional_deficiencies > 757152 THEN
+    SET NEW.deaths_by_nutritional_deficiencies = 757152;
+  END IF;
+END: 0 row(s) affected
+[37, 22:00:50] CREATE TRIGGER fix_deaths_by_nutritional_deficiencies_before_update
+BEFORE UPDATE
+ON diet_deaths FOR EACH ROW
+BEGIN
+  IF NEW.deaths_by_nutritional_deficiencies < 0 THEN
+    SET NEW.deaths_by_nutritional_deficiencies = 0;
+  ELSEIF NEW.deaths_by_nutritional_deficiencies > 757152 THEN
+    SET NEW.deaths_by_nutritional_deficiencies = 757152;
+  END IF;
+END: Running...
+[37, 22:00:50] CREATE TRIGGER fix_deaths_by_nutritional_deficiencies_before_update
+BEFORE UPDATE
+ON diet_deaths FOR EACH ROW
+BEGIN
+  IF NEW.deaths_by_nutritional_deficiencies < 0 THEN
+    SET NEW.deaths_by_nutritional_deficiencies = 0;
+  ELSEIF NEW.deaths_by_nutritional_deficiencies > 757152 THEN
+    SET NEW.deaths_by_nutritional_deficiencies = 757152;
+  END IF;
+END: 0 row(s) affected
+[38, 22:00:57] CREATE PROCEDURE get_deaths_by_nutritional_deficiencies (IN iso_code VARCHAR(5))
+BEGIN
+  DECLARE count_iso_code INT;
+  SELECT COUNT(*) INTO count_iso_code FROM diet_deaths A WHERE A.iso_code = iso_code;
+  IF count_iso_code > 0 THEN
+    SELECT AVG(deaths_by_nutritional_deficiencies) AS avg_deaths,
+    MAX(deaths_by_nutritional_deficiencies) AS max_deaths
+    FROM diet_deaths A WHERE A.iso_code = iso_code;
+  ELSE
+    SELECT 'Such an ISO code does not exist in the table' AS error_message;
+  END IF;
+END: Running...
+[38, 22:00:57] CREATE PROCEDURE get_deaths_by_nutritional_deficiencies (IN iso_code VARCHAR(5))
+BEGIN
+  DECLARE count_iso_code INT;
+  SELECT COUNT(*) INTO count_iso_code FROM diet_deaths A WHERE A.iso_code = iso_code;
+  IF count_iso_code > 0 THEN
+    SELECT AVG(deaths_by_nutritional_deficiencies) AS avg_deaths,
+    MAX(deaths_by_nutritional_deficiencies) AS max_deaths
+    FROM diet_deaths A WHERE A.iso_code = iso_code;
+  ELSE
+    SELECT 'Such an ISO code does not exist in the table' AS error_message;
+  END IF;
+END: 0 row(s) affected
+[39, 22:00:57] # two different calls with two different inputs
+CALL get_deaths_by_nutritional_deficiencies('AGO'): Running...
+[39, 22:00:57] # two different calls with two different inputs
+CALL get_deaths_by_nutritional_deficiencies('AGO'): Fetching...
+[39, 22:00:57] # two different calls with two different inputs
+CALL get_deaths_by_nutritional_deficiencies('AGO'): 1 row(s) returned
+[40, 22:00:57] CALL get_deaths_by_nutritional_deficiencies('AWH'): Running...
+[40, 22:00:57] CALL get_deaths_by_nutritional_deficiencies('AWH'): Fetching...
+[40, 22:00:57] CALL get_deaths_by_nutritional_deficiencies('AWH'): 1 row(s) returned
