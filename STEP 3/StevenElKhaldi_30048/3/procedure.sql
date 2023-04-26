@@ -15,5 +15,5 @@ END$$
 DELIMITER ;
 
 # two different calls with two different inputs
-CALL get_deaths_by_nutritional_deficiencies('AGO');
-CALL get_deaths_by_nutritional_deficiencies('AWH');
+CALL get_deaths_by_nutritional_deficiencies('AGO'); # avg_deaths: 7839.3667, max_deaths: 12232
+CALL get_deaths_by_nutritional_deficiencies('AWH'); # avg_deaths: 164695.3333, max_deaths: 217480
