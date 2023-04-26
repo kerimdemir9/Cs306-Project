@@ -1,0 +1,98 @@
+21:45:02 [ERR][      Workbench]: Console redirection failed.
+21:45:02 [INF][      Workbench]: Starting up Workbench
+21:45:02 [INF][      Workbench]: Current environment:
+	Command line: "C:\Program Files\MySQL\MySQL Workbench 8.0\MySQLWorkbench.exe" 
+	CurrentDirectory: C:\Program Files\MySQL\MySQL Workbench 8.0
+	HasShutdownStarted: False
+	OSVersion: Microsoft Windows NT 6.2.9200.0
+	SystemDirectory: C:\WINDOWS\system32
+	TickCount: 600617312
+	UserInteractive: True
+	Version: 4.0.30319.42000
+	WorkingSet: 37425152
+21:45:02 [INF][      Workbench]: Environment variables:
+	COMPUTERNAME = GOKTUG
+	USERPROFILE = C:\Users\aygun
+	HOMEPATH = \Users\aygun
+	LOCALAPPDATA = C:\Users\aygun\AppData\Local
+	PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+	PROCESSOR_ARCHITECTURE = AMD64
+	Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\aygun\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\aygun\AppData\Local\Programs\Python\Python311\;C:\Users\aygun\AppData\Local\Microsoft\WindowsApps;;C:\Users\aygun\AppData\Local\Programs\Microsoft VS Code\bin
+	CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+	ProgramFiles(x86) = C:\Program Files (x86)
+	PROCESSOR_LEVEL = 6
+	LOGONSERVER = \\GOKTUG
+	PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+	HOMEDRIVE = C:
+	SystemRoot = C:\WINDOWS
+	SESSIONNAME = Console
+	ALLUSERSPROFILE = C:\ProgramData
+	EFC_1588 = 1
+	DriverData = C:\Windows\System32\Drivers\DriverData
+	FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+	APPDATA = C:\Users\aygun\AppData\Roaming
+	PROCESSOR_REVISION = 8c01
+	USERNAME = aygun
+	CommonProgramW6432 = C:\Program Files\Common Files
+	TEMP = C:\Users\aygun\AppData\Local\Temp
+	OneDrive = C:\Users\aygun\OneDrive
+	CommonProgramFiles = C:\Program Files\Common Files
+	OS = Windows_NT
+	USERDOMAIN_ROAMINGPROFILE = GOKTUG
+	PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+	ComSpec = C:\WINDOWS\system32\cmd.exe
+	SystemDrive = C:
+	FPS_BROWSER_USER_PROFILE_STRING = Default
+	VS110COMNTOOLS = C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\
+	ProgramFiles = C:\Program Files
+	NUMBER_OF_PROCESSORS = 8
+	TMP = C:\Users\aygun\AppData\Local\Temp
+	ProgramData = C:\ProgramData
+	ProgramW6432 = C:\Program Files
+	windir = C:\WINDOWS
+	USERDOMAIN = GOKTUG
+	PUBLIC = C:\Users\Public
+	ZES_ENABLE_SYSMAN = 1
+21:45:02 [INF][      Workbench]: Current version given by meta info is: 8.0.33
+21:45:02 [INF][      Workbench]: Setting PATH to: C:\WINDOWS\system32;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\aygun\AppData\Local\Microsoft\WindowsApps;;C:\Users\aygun\AppData\Local\Programs\Microsoft VS Code\bin
+21:45:02 [INF][ mforms managed]: Initializing mforms wrapper
+21:45:04 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: C:\Program Files\MySQL\MySQL Workbench 8.0
+	plugin path: C:\Program Files\MySQL\MySQL Workbench 8.0
+	struct path: 
+	module path: C:\Program Files\MySQL\MySQL Workbench 8.0/modules
+	library path: C:\Program Files\MySQL\MySQL Workbench 8.0
+	user data dir: C:\Users\aygun\AppData\Roaming\MySQL\Workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+21:45:04 [INF][      WBContext]: WbContext::init
+21:45:04 [INF][            WBA]: Looking for extension modules for WBA...
+21:45:04 [INF][            WBA]: 0 extension modules found
+21:45:04 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+21:45:04 [WRN][            grt]: C:\Users\aygun\AppData\Roaming\MySQL\Workbench\connections.xml:18: link '{F6A03EAD-CD1C-41DE-9919-1309A2120960}' <object GrtObject> key=owner could not be resolved
+21:45:04 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+21:45:04 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Windows version 8.0.33 CE build 2947366 (64 bit)
+	Configuration Directory: C:\Users\aygun\AppData\Roaming\MySQL\Workbench
+	Data Directory: C:\Program Files\MySQL\MySQL Workbench 8.0
+	Cairo Version: 1.17.6
+	OS: Microsoft Windows 10 Home
+	CPU: 8x 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz, 7.7 GiB RAM
+	Active video adapter Intel(R) Iris(R) Xe Graphics
+	Installed video RAM: 1024 MB
+	Current video mode: 1920 x 1080 x 4294967296 colors
+	Used bit depth: 32
+	Driver version: 30.0.101.1338
+	Installed display drivers: C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_ebf638e0a8a70542\igdumdim64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_ebf638e0a8a70542\igd10iumd64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_ebf638e0a8a70542\igd10iumd64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_ebf638e0a8a70542\igd12umd64.dll
+	Current user language: Turkish (Turkey)
+
+21:45:05 [INF][      Workbench]: UI is up
+21:45:05 [INF][      Workbench]: Running the application
+21:45:06 [INF][SQL Editor Form]: Opened connection 'Local instance MySQL80' to MySQL Community Server - GPL version 8.0.33
+21:45:06 [INF][        WQE.net]: Launching SQL IDE
+21:45:07 [INF][        WQE.net]: SQL IDE UI is ready

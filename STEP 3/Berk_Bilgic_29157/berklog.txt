@@ -1,0 +1,194 @@
+[1, 16:56:09] SET GLOBAL general_log='ON': Running...
+[1, 16:56:09] SET GLOBAL general_log='ON': 0 row(s) affected
+[2, 16:56:26] DROP VIEW `berk`.`average_comparision`: Running...
+[2, 16:56:26] DROP VIEW `berk`.`average_comparision`: 0 row(s) affected
+[3, 16:56:30] DROP VIEW `berk`.`average_deaths_by_year`: Running...
+[3, 16:56:30] DROP VIEW `berk`.`average_deaths_by_year`: 0 row(s) affected
+[4, 16:56:46] ALTER TABLE nature_deaths DROP CONSTRAINT range_death: Running...
+[4, 16:56:46] ALTER TABLE nature_deaths DROP CONSTRAINT range_death: 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0
+[5, 16:57:07] DROP TRIGGER range_checker: Running...
+[5, 16:57:07] DROP TRIGGER range_checker: 0 row(s) affected
+[6, 16:57:11] DROP TRIGGER range_checker_update: Running...
+[6, 16:57:11] DROP TRIGGER range_checker_update: 0 row(s) affected
+[7, 16:57:17] DROP PROCEDURE iso_unsafe_sanitation_and_air_pollution: Running...
+[7, 16:57:17] DROP PROCEDURE iso_unsafe_sanitation_and_air_pollution: 0 row(s) affected
+[8, 16:57:27] CREATE VIEW average_deaths_by_year AS
+SELECT year,
+       AVG(deaths_by_outdoor_air_pollution) AS avg_outdoor_pollution, 
+       AVG(deaths_by_unsafe_water_source) AS avg_unsafe_water,
+       AVG(deaths_by_household_air_pollution_from_solid_fuels ) AS avg_household_air_pollution,
+       AVG(deaths_by_air_pollution) AS avg_air_pollution,
+       AVG(deaths_by_unsafe_sanitation) AS avg_unsafe_sanitation
+FROM nature_deaths
+GROUP BY year: Running...
+[8, 16:57:27] CREATE VIEW average_deaths_by_year AS
+SELECT year,
+       AVG(deaths_by_outdoor_air_pollution) AS avg_outdoor_pollution, 
+       AVG(deaths_by_unsafe_water_source) AS avg_unsafe_water,
+       AVG(deaths_by_household_air_pollution_from_solid_fuels ) AS avg_household_air_pollution,
+       AVG(deaths_by_air_pollution) AS avg_air_pollution,
+       AVG(deaths_by_unsafe_sanitation) AS avg_unsafe_sanitation
+FROM nature_deaths
+GROUP BY year: 0 row(s) affected
+[9, 16:57:30] SELECT * FROM average_deaths_by_year
+LIMIT 0, 1000
+: Running...
+[9, 16:57:30] SELECT * FROM average_deaths_by_year
+LIMIT 0, 1000
+: Fetching...
+[9, 16:57:30] SELECT * FROM average_deaths_by_year
+LIMIT 0, 1000
+: 31 row(s) returned
+[10, 16:57:42] CREATE VIEW average_comparision AS
+SELECT nature_deaths.iso_code, nature_deaths.year
+FROM nature_deaths
+INNER JOIN average_deaths_by_year ON nature_deaths.year = average_deaths_by_year.year
+WHERE nature_deaths.deaths_by_outdoor_air_pollution > average_deaths_by_year.avg_outdoor_pollution 
+AND nature_deaths.deaths_by_unsafe_water_source > average_deaths_by_year.avg_unsafe_water: Running...
+[10, 16:57:42] CREATE VIEW average_comparision AS
+SELECT nature_deaths.iso_code, nature_deaths.year
+FROM nature_deaths
+INNER JOIN average_deaths_by_year ON nature_deaths.year = average_deaths_by_year.year
+WHERE nature_deaths.deaths_by_outdoor_air_pollution > average_deaths_by_year.avg_outdoor_pollution 
+AND nature_deaths.deaths_by_unsafe_water_source > average_deaths_by_year.avg_unsafe_water: 0 row(s) affected
+[11, 16:57:53] SELECT * FROM average_comparision
+LIMIT 0, 1000
+: Running...
+[11, 16:57:53] SELECT * FROM average_comparision
+LIMIT 0, 1000
+: Fetching...
+[11, 16:57:53] SELECT * FROM average_comparision
+LIMIT 0, 1000
+: 377 row(s) returned
+[12, 16:58:00] SELECT countries.name
+FROM countries
+WHERE countries.iso_code IN (SELECT iso_code FROM average_comparision)
+LIMIT 0, 1000
+: Running...
+[12, 16:58:00] SELECT countries.name
+FROM countries
+WHERE countries.iso_code IN (SELECT iso_code FROM average_comparision)
+LIMIT 0, 1000
+: Fetching...
+[12, 16:58:00] SELECT countries.name
+FROM countries
+WHERE countries.iso_code IN (SELECT iso_code FROM average_comparision)
+LIMIT 0, 1000
+: 18 row(s) returned
+[13, 16:58:07] SELECT countries.name
+FROM countries
+WHERE EXISTS (SELECT iso_code FROM average_comparision WHERE average_comparision.iso_code=countries.iso_code)
+LIMIT 0, 1000
+: Running...
+[13, 16:58:07] SELECT countries.name
+FROM countries
+WHERE EXISTS (SELECT iso_code FROM average_comparision WHERE average_comparision.iso_code=countries.iso_code)
+LIMIT 0, 1000
+: Fetching...
+[13, 16:58:07] SELECT countries.name
+FROM countries
+WHERE EXISTS (SELECT iso_code FROM average_comparision WHERE average_comparision.iso_code=countries.iso_code)
+LIMIT 0, 1000
+: 18 row(s) returned
+[14, 16:58:25] SELECT * FROM nature_deaths N WHERE N.deaths_by_unsafe_water_source=(SELECT MAX(deaths_by_unsafe_water_source) FROM nature_deaths)
+LIMIT 0, 1000
+: Running...
+[14, 16:58:25] SELECT * FROM nature_deaths N WHERE N.deaths_by_unsafe_water_source=(SELECT MAX(deaths_by_unsafe_water_source) FROM nature_deaths)
+LIMIT 0, 1000
+: Fetching...
+[14, 16:58:25] SELECT * FROM nature_deaths N WHERE N.deaths_by_unsafe_water_source=(SELECT MAX(deaths_by_unsafe_water_source) FROM nature_deaths)
+LIMIT 0, 1000
+: 2 row(s) returned
+[15, 16:58:51] DELETE FROM nature_deaths WHERE iso_code='AFG' AND year=2020: Running...
+[15, 16:58:51] DELETE FROM nature_deaths WHERE iso_code='AFG' AND year=2020: 1 row(s) affected
+[16, 16:58:55] SELECT * FROM nature_deaths N WHERE N.deaths_by_unsafe_water_source=(SELECT MAX(deaths_by_unsafe_water_source) FROM nature_deaths)
+LIMIT 0, 1000
+: Running...
+[16, 16:58:55] SELECT * FROM nature_deaths N WHERE N.deaths_by_unsafe_water_source=(SELECT MAX(deaths_by_unsafe_water_source) FROM nature_deaths)
+LIMIT 0, 1000
+: Fetching...
+[16, 16:58:55] SELECT * FROM nature_deaths N WHERE N.deaths_by_unsafe_water_source=(SELECT MAX(deaths_by_unsafe_water_source) FROM nature_deaths)
+LIMIT 0, 1000
+: 1 row(s) returned
+[17, 16:59:06] SET @max_deaths_by_unsafe_water_source= (SELECT MAX(deaths_by_unsafe_water_source) FROM nature_deaths): Running...
+[17, 16:59:06] SET @max_deaths_by_unsafe_water_source= (SELECT MAX(deaths_by_unsafe_water_source) FROM nature_deaths): 0 row(s) affected
+[18, 16:59:06] SET @min_deaths_by_unsafe_water_source= (SELECT MIN(deaths_by_unsafe_water_source) FROM nature_deaths): Running...
+[18, 16:59:06] SET @min_deaths_by_unsafe_water_source= (SELECT MIN(deaths_by_unsafe_water_source) FROM nature_deaths): 0 row(s) affected
+[19, 16:59:09] SELECT @min_deaths_by_unsafe_water_source
+LIMIT 0, 1000
+: Running...
+[19, 16:59:09] SELECT @min_deaths_by_unsafe_water_source
+LIMIT 0, 1000
+: Fetching...
+[19, 16:59:09] SELECT @min_deaths_by_unsafe_water_source
+LIMIT 0, 1000
+: 1 row(s) returned
+[20, 16:59:18] ALTER TABLE nature_deaths ADD CONSTRAINT range_death
+CHECK (0 <= deaths_by_unsafe_water_source AND 2450944 >= deaths_by_unsafe_water_source): Running...
+[20, 16:59:18] ALTER TABLE nature_deaths ADD CONSTRAINT range_death
+CHECK (0 <= deaths_by_unsafe_water_source AND 2450944 >= deaths_by_unsafe_water_source): 6840 row(s) affected
+Records: 6840  Duplicates: 0  Warnings: 0
+[21, 16:59:26] INSERT INTO nature_deaths
+VALUES('AFG', 2020 , 12000, 2450945, 34000, 37000, 3000, 80000): Running...
+[21, 16:59:26] INSERT INTO nature_deaths
+VALUES('AFG', 2020 , 12000, 2450945, 34000, 37000, 3000, 80000): Error Code: 3819. Check constraint 'range_death' is violated.
+[22, 16:59:33] CREATE TRIGGER range_checker
+BEFORE INSERT ON nature_deaths
+FOR EACH ROW
+BEGIN
+	IF NEW.deaths_by_unsafe_water_source < @min_deaths_by_unsafe_water_source THEN
+		SET NEW.deaths_by_unsafe_water_source = @min_deaths_by_unsafe_water_source;
+	ELSEIF NEW.deaths_by_unsafe_water_source > @max_deaths_by_unsafe_water_source THEN
+		SET NEW.deaths_by_unsafe_water_source = @max_deaths_by_unsafe_water_source;
+    END IF;
+END: Running...
+[22, 16:59:33] CREATE TRIGGER range_checker
+BEFORE INSERT ON nature_deaths
+FOR EACH ROW
+BEGIN
+	IF NEW.deaths_by_unsafe_water_source < @min_deaths_by_unsafe_water_source THEN
+		SET NEW.deaths_by_unsafe_water_source = @min_deaths_by_unsafe_water_source;
+	ELSEIF NEW.deaths_by_unsafe_water_source > @max_deaths_by_unsafe_water_source THEN
+		SET NEW.deaths_by_unsafe_water_source = @max_deaths_by_unsafe_water_source;
+    END IF;
+END: 0 row(s) affected
+[23, 16:59:42] CREATE TRIGGER range_checker_update
+BEFORE UPDATE ON nature_deaths
+FOR EACH ROW
+BEGIN
+	IF NEW.deaths_by_unsafe_water_source < @min_deaths_by_unsafe_water_source THEN
+		SET NEW.deaths_by_unsafe_water_source = @min_deaths_by_unsafe_water_source;
+	ELSEIF NEW.deaths_by_unsafe_water_source > @max_deaths_by_unsafe_water_source THEN
+		SET NEW.deaths_by_unsafe_water_source = @max_deaths_by_unsafe_water_source;
+    END IF;
+END: Running...
+[23, 16:59:42] CREATE TRIGGER range_checker_update
+BEFORE UPDATE ON nature_deaths
+FOR EACH ROW
+BEGIN
+	IF NEW.deaths_by_unsafe_water_source < @min_deaths_by_unsafe_water_source THEN
+		SET NEW.deaths_by_unsafe_water_source = @min_deaths_by_unsafe_water_source;
+	ELSEIF NEW.deaths_by_unsafe_water_source > @max_deaths_by_unsafe_water_source THEN
+		SET NEW.deaths_by_unsafe_water_source = @max_deaths_by_unsafe_water_source;
+    END IF;
+END: 0 row(s) affected
+[24, 16:59:48] INSERT INTO nature_deaths
+VALUES('AFG', 2020 , 12000, 2450945, 34000, 37000, 3000, 80000): Running...
+[24, 16:59:48] INSERT INTO nature_deaths
+VALUES('AFG', 2020 , 12000, 2450945, 34000, 37000, 3000, 80000): 1 row(s) affected
+[25, 16:59:56] CREATE PROCEDURE iso_unsafe_sanitation_and_air_pollution(IN param VARCHAR(35))
+BEGIN
+	SELECT year, deaths_by_air_pollution + deaths_by_unsafe_sanitation AS air_and_sanitation 
+    FROM nature_deaths 
+    WHERE iso_code=param;
+END: Running...
+[25, 16:59:56] CREATE PROCEDURE iso_unsafe_sanitation_and_air_pollution(IN param VARCHAR(35))
+BEGIN
+	SELECT year, deaths_by_air_pollution + deaths_by_unsafe_sanitation AS air_and_sanitation 
+    FROM nature_deaths 
+    WHERE iso_code=param;
+END: 0 row(s) affected
+[26, 17:00:01] CALL iso_unsafe_sanitation_and_air_pollution ('AFG'): Running...
+[26, 17:00:01] CALL iso_unsafe_sanitation_and_air_pollution ('AFG'): Fetching...
+[26, 17:00:01] CALL iso_unsafe_sanitation_and_air_pollution ('AFG'): 31 row(s) returned
