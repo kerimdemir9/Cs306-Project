@@ -1,0 +1,126 @@
+14:16:19 [ERR][      Workbench]: Console redirection failed.
+14:16:19 [INF][      Workbench]: Starting up Workbench
+14:16:19 [INF][      Workbench]: Current environment:
+	Command line: "C:\Program Files\MySQL\MySQL Workbench 8.0\MySQLWorkbench.exe" 
+	CurrentDirectory: C:\Users\aygun\AppData\Local\Temp\MSI9C34.tmp-
+	HasShutdownStarted: False
+	OSVersion: Microsoft Windows NT 6.2.9200.0
+	SystemDirectory: C:\WINDOWS\system32
+	TickCount: 487293562
+	UserInteractive: True
+	Version: 4.0.30319.42000
+	WorkingSet: 39538688
+14:16:19 [INF][      Workbench]: Environment variables:
+	COMPUTERNAME = GOKTUG
+	USERPROFILE = C:\Users\aygun
+	HOMEPATH = \Users\aygun
+	LOCALAPPDATA = C:\Users\aygun\AppData\Local
+	PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+	PROCESSOR_ARCHITECTURE = AMD64
+	Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\aygun\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\aygun\AppData\Local\Programs\Python\Python311\;C:\Users\aygun\AppData\Local\Microsoft\WindowsApps;C:\Users\aygun\AppData\Local\Programs\Microsoft VS Code\bin
+	CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+	ProgramFiles(x86) = C:\Program Files (x86)
+	PROCESSOR_LEVEL = 6
+	LOGONSERVER = \\GOKTUG
+	PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+	HOMEDRIVE = C:
+	SystemRoot = C:\WINDOWS
+	ALLUSERSPROFILE = C:\ProgramData
+	DriverData = C:\Windows\System32\Drivers\DriverData
+	APPDATA = C:\Users\aygun\AppData\Roaming
+	PROCESSOR_REVISION = 8c01
+	USERNAME = aygun
+	CommonProgramW6432 = C:\Program Files\Common Files
+	OneDrive = C:\Users\aygun\OneDrive
+	CommonProgramFiles = C:\Program Files\Common Files
+	OS = Windows_NT
+	USERDOMAIN_ROAMINGPROFILE = GOKTUG
+	PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+	ComSpec = C:\WINDOWS\system32\cmd.exe
+	__COMPAT_LAYER = DetectorsAppHealth Installer
+	SystemDrive = C:
+	TEMP = C:\Users\aygun\AppData\Local\Temp
+	VS110COMNTOOLS = C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\
+	ProgramFiles = C:\Program Files
+	NUMBER_OF_PROCESSORS = 8
+	TMP = C:\Users\aygun\AppData\Local\Temp
+	ProgramData = C:\ProgramData
+	ProgramW6432 = C:\Program Files
+	windir = C:\WINDOWS
+	USERDOMAIN = GOKTUG
+	PUBLIC = C:\Users\Public
+	ZES_ENABLE_SYSMAN = 1
+14:16:19 [INF][      Workbench]: Current version given by meta info is: 8.0.33
+14:16:19 [INF][      Workbench]: This is the first start of a new version. Doing some clean up.
+14:16:19 [INF][      Workbench]: Setting PATH to: C:\WINDOWS\system32;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\aygun\AppData\Local\Microsoft\WindowsApps;C:\Users\aygun\AppData\Local\Programs\Microsoft VS Code\bin
+14:16:19 [INF][ mforms managed]: Initializing mforms wrapper
+14:16:19 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: C:\Program Files\MySQL\MySQL Workbench 8.0
+	plugin path: C:\Program Files\MySQL\MySQL Workbench 8.0
+	struct path: 
+	module path: C:\Program Files\MySQL\MySQL Workbench 8.0/modules
+	library path: C:\Program Files\MySQL\MySQL Workbench 8.0
+	user data dir: C:\Users\aygun\AppData\Roaming\MySQL\Workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+14:16:19 [INF][      WBContext]: WbContext::init
+14:16:21 [INF][            WBA]: Looking for extension modules for WBA...
+14:16:21 [INF][            WBA]: 0 extension modules found
+14:16:21 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+14:16:21 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+14:16:22 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Windows version 8.0.33 CE build 2947366 (64 bit)
+	Configuration Directory: C:\Users\aygun\AppData\Roaming\MySQL\Workbench
+	Data Directory: C:\Program Files\MySQL\MySQL Workbench 8.0
+	Cairo Version: 1.17.6
+	OS: Microsoft Windows 10 Home
+	CPU: 8x 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz, 7.7 GiB RAM
+	Active video adapter Intel(R) Iris(R) Xe Graphics
+	Installed video RAM: 1024 MB
+	Current video mode: 1920 x 1080 x 4294967296 colors
+	Used bit depth: 32
+	Driver version: 30.0.101.1338
+	Installed display drivers: C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_ebf638e0a8a70542\igdumdim64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_ebf638e0a8a70542\igd10iumd64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_ebf638e0a8a70542\igd10iumd64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_ebf638e0a8a70542\igd12umd64.dll
+	Current user language: Turkish (Turkey)
+
+14:16:22 [INF][      Workbench]: UI is up
+14:16:23 [INF][      Workbench]: Running the application
+14:17:45 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'root'@'localhost' (using password: NO)
+14:17:45 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'root'@'localhost' (using password: NO)
+14:17:50 [INF][SQL Editor Form]: Opened connection 'Local instance MySQL80' to MySQL Community Server - GPL version 8.0.33
+14:17:51 [INF][  column_widths]: Initializing column width cache for Local_instance_MySQL80
+14:17:51 [INF][        WQE.net]: Launching SQL IDE
+14:17:52 [INF][        WQE.net]: SQL IDE UI is ready
+14:18:22 [ERR][ sqlide-history]: Can't open SQL history file C:\Users\aygun\AppData\Roaming\MySQL\Workbench\sql_history\2023-04-23
+14:20:48 [INF][         Wizard]: Execute 'Prepare Import'
+14:20:48 [INF][         Wizard]: Starting thread for 'Import data file'
+14:21:14 [INF][         Wizard]: Execute 'Prepare Import'
+14:21:14 [INF][         Wizard]: Starting thread for 'Import data file'
+14:21:20 [INF][         Wizard]: Execute 'Prepare Import'
+14:21:20 [INF][         Wizard]: Starting thread for 'Import data file'
+14:21:20 
+14:21:40 [INF][         Wizard]: Starting thread for 'Import data file'
+14:24:50 [INF][         Wizard]: Execute 'Prepare Import'
+14:24:50 [INF][         Wizard]: Starting thread for 'Import data file'
+14:24:50 [ERR][SQL Editor Form]: Error Code: 1110
+Column 'iso_code' specified twice
+14:24:50 [ERR][         Wizard]: Thread 'Import data file' failed: ("Column 'iso_code' specified twice", 1110)
+14:24:55 [INF][         Wizard]: Execute 'Prepare Import'
+14:24:55 [INF][         Wizard]: Starting thread for 'Import data file'
+14:26:53 [INF][         Wizard]: Execute 'Prepare Import'
+14:26:53 [INF][         Wizard]: Starting thread for 'Import data file'
+14:28:58 [INF][         Wizard]: Execute 'Prepare Import'
+14:28:58 [INF][         Wizard]: Starting thread for 'Import data file'
+14:32:51 [INF][         Wizard]: Execute 'Prepare Import'
+14:32:52 [INF][         Wizard]: Starting thread for 'Import data file'
+14:34:20 [INF][         Wizard]: Execute 'Prepare Import'
+14:34:21 [INF][         Wizard]: Starting thread for 'Import data file'
+14:43:47 [INF][        WQE.net]: Shutting down SQL editor (Local instance MySQL80)
+14:43:47 [INF][      Workbench]: Shutting down Workbench
+14:43:47 [INF][ mforms managed]: Shutting down mforms wrapper
+14:43:47 [INF][      Workbench]: Done
