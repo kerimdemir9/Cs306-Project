@@ -1,7 +1,34 @@
-from connector import connectionCreator
-import pandas as pd
-import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
+from mysql.connector import errorcode
+import matplotlib.pyplot as plt
+import mysql.connector
+import pandas as pd
+import warnings
+
+
+warnings.filterwarnings("ignore", category=UserWarning, module="pandas", message = "pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy. ")
+
+
+def connectionCreator():
+    try:
+        cnx = mysql.connector.connect(
+            user = "root", password = "CS306", database = "cs306-project"
+        )
+        print("Connection established with the database")
+        return cnx
+    except mysql.connector.Error as err: 
+        if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Something is wrong with your username or your password")
+        elif err.errno == errorcode.ER_BAD_DB_ERROR:
+            print("Database does not exist")
+        else:
+            print(err)
+        return None
+    else:
+        cnx.close()
+        return None
+
+
 
 mydb = connectionCreator()
 
