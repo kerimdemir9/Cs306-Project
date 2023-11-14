@@ -1,0 +1,182 @@
+[149, 19:31:24] Create view smoking_deaths_gt_avg as
+SELECT C.name, S.year, S.deaths_by_smoking, AVG(S2.deaths_by_smoking) AS avg_smoking_deaths_per_year, S.total_deaths 
+FROM substance_deaths S 
+JOIN countries C ON S.iso_code = C.iso_code
+JOIN substance_deaths S2 ON S.iso_code = S2.iso_code 
+GROUP BY S.iso_code, S.year 
+HAVING S.deaths_by_smoking > AVG(S2.deaths_by_smoking): Running...
+
+[149, 19:31:24] Create view smoking_deaths_gt_avg as
+SELECT C.name, S.year, S.deaths_by_smoking, AVG(S2.deaths_by_smoking) AS avg_smoking_deaths_per_year, S.total_deaths 
+FROM substance_deaths S 
+JOIN countries C ON S.iso_code = C.iso_code
+JOIN substance_deaths S2 ON S.iso_code = S2.iso_code 
+GROUP BY S.iso_code, S.year 
+HAVING S.deaths_by_smoking > AVG(S2.deaths_by_smoking): 0 row(s) affected
+
+
+[161, 19:38:42] Create view cardiovascular_diseases_gt_avg as
+SELECT C.name, H.year, H.deaths_by_cardiovascular_diseases, AVG(H2.deaths_by_cardiovascular_diseases) AS avg_cardiovascular_deaths_per_year
+FROM health_deaths H 
+JOIN countries C ON H.iso_code = C.iso_code
+JOIN health_deaths H2 ON H.iso_code = H2.iso_code 
+GROUP BY H.iso_code, H.year 
+HAVING H.deaths_by_cardiovascular_diseases > AVG(H2.deaths_by_cardiovascular_diseases): Running...
+
+[161, 19:38:42] Create view cardiovascular_diseases_gt_avg as
+SELECT C.name, H.year, H.deaths_by_cardiovascular_diseases, AVG(H2.deaths_by_cardiovascular_diseases) AS avg_cardiovascular_deaths_per_year
+FROM health_deaths H 
+JOIN countries C ON H.iso_code = C.iso_code
+JOIN health_deaths H2 ON H.iso_code = H2.iso_code 
+GROUP BY H.iso_code, H.year 
+HAVING H.deaths_by_cardiovascular_diseases > AVG(H2.deaths_by_cardiovascular_diseases): 0 row(s) affected
+
+
+[31, 19:42:16] select S.name, S.year from smoking_deaths_gt_avg S intersect select C.name, C.year from cardiovascular_diseases_gt_avg C: Running...
+[31, 19:42:16] select S.name, S.year from smoking_deaths_gt_avg S intersect select C.name, C.year from cardiovascular_diseases_gt_avg C: Fetching...
+[31, 19:42:16] select S.name, S.year from smoking_deaths_gt_avg S intersect select C.name, C.year from cardiovascular_diseases_gt_avg C: 2525 row(s) returned
+
+[11, 12:54:16] select S.name, S.year, S.deaths_by_smoking, C.deaths_by_cardiovascular_diseases, S.total_deaths as substance_total_deaths 
+from smoking_deaths_gt_avg S INNER JOIN cardiovascular_diseases_gt_avg C on C.year = S.year and C.name = S.name
+LIMIT 0, 1000
+: Running...
+[11, 12:54:17] select S.name, S.year, S.deaths_by_smoking, C.deaths_by_cardiovascular_diseases, S.total_deaths as substance_total_deaths 
+from smoking_deaths_gt_avg S INNER JOIN cardiovascular_diseases_gt_avg C on C.year = S.year and C.name = S.name
+LIMIT 0, 1000
+: Fetching...
+[11, 12:54:17] select S.name, S.year, S.deaths_by_smoking, C.deaths_by_cardiovascular_diseases, S.total_deaths as substance_total_deaths 
+from smoking_deaths_gt_avg S INNER JOIN cardiovascular_diseases_gt_avg C on C.year = S.year and C.name = S.name
+LIMIT 0, 1000
+: 1000 row(s) returned
+
+[6, 15:06:59] SELECT name, year
+FROM smoking_deaths_gt_avg S
+WHERE EXISTS (
+    SELECT *
+    FROM cardiovascular_diseases_gt_avg C
+    WHERE C.year = S.year and C.name = S.name
+)
+LIMIT 0, 1000
+: Running...
+[6, 15:06:59] SELECT name, year
+FROM smoking_deaths_gt_avg S
+WHERE EXISTS (
+    SELECT *
+    FROM cardiovascular_diseases_gt_avg C
+    WHERE C.year = S.year and C.name = S.name
+)
+LIMIT 0, 1000
+: Fetching...
+[6, 15:06:59] SELECT name, year
+FROM smoking_deaths_gt_avg S
+WHERE EXISTS (
+    SELECT *
+    FROM cardiovascular_diseases_gt_avg C
+    WHERE C.year = S.year and C.name = S.name
+)
+LIMIT 0, 1000
+: 1000 row(s) returned
+
+SELECT name, year 
+FROM smoking_deaths_gt_avg
+WHERE year and name IN (
+    SELECT year and name
+    FROM cardiovascular_diseases_gt_avg
+)
+LIMIT 0, 1000
+: Running...
+[5, 15:06:54] SELECT name, year 
+FROM smoking_deaths_gt_avg
+WHERE year and name IN (
+    SELECT year and name
+    FROM cardiovascular_diseases_gt_avg
+)
+LIMIT 0, 1000
+: Fetching...
+[5, 15:06:54] SELECT name, year 
+FROM smoking_deaths_gt_avg
+WHERE year and name IN (
+    SELECT year and name
+    FROM cardiovascular_diseases_gt_avg
+)
+LIMIT 0, 1000
+: 1000 row(s) returned
+
+[11, 14:59:15] ALTER TABLE substance_deaths ADD CONSTRAINT in_range_smoking_deaths 
+check (deaths_by_smoking >= 1 and deaths_by_smoking <= 7693368): Running...
+[11, 14:59:15] ALTER TABLE substance_deaths ADD CONSTRAINT in_range_smoking_deaths 
+check (deaths_by_smoking >= 1 and deaths_by_smoking <= 7693368): 6840 row(s) affected
+Records: 6840  Duplicates: 0  Warnings: 0
+
+[12, 14:59:17] INSERT INTO substance_deaths (iso_code, year, deaths_by_tobacco, deaths_by_drug_use, 
+deaths_by_alcohol_use, deaths_by_smoking, deaths_by_secondhand_smoke, total_deaths) 
+VALUES ("AFG", 2020, 16000, 750, 5, 0, 6100, 33.849): Running...
+[12, 14:59:17] INSERT INTO substance_deaths (iso_code, year, deaths_by_tobacco, deaths_by_drug_use, 
+deaths_by_alcohol_use, deaths_by_smoking, deaths_by_secondhand_smoke, total_deaths) 
+VALUES ("AFG", 2020, 16000, 750, 5, 0, 6100, 33.849): Error Code: 3819. Check constraint 'in_range_smoking_deaths' is violated.
+
+[6, 14:54:33] set @max_smoking_deaths = (select max(deaths_by_smoking) from substance_deaths): Running...
+[6, 14:54:33] set @max_smoking_deaths = (select max(deaths_by_smoking) from substance_deaths): 0 row(s) affected
+[7, 14:54:33] set @min_smoking_deaths = (select min(deaths_by_smoking) from substance_deaths): Running...
+[7, 14:54:33] set @min_smoking_deaths = (select min(deaths_by_smoking) from substance_deaths): 0 row(s) affected
+
+
+[15, 14:59:43] CREATE TRIGGER ins_check
+BEFORE INSERT ON substance_deaths 
+for each row 
+Begin
+	IF NEW.deaths_by_smoking < @min_smoking_deaths then
+		set NEW.deaths_by_smoking = @min_smoking_deaths;
+	ELSEIF NEW.deaths_by_smoking > @max_smoking_deaths then
+		set NEW.deaths_by_smoking = @max_smoking_deaths;
+	END IF;
+END;: Running...
+[15, 14:59:43] CREATE TRIGGER ins_check
+BEFORE INSERT ON substance_deaths 
+for each row 
+Begin
+	IF NEW.deaths_by_smoking < @min_smoking_deaths then
+		set NEW.deaths_by_smoking = @min_smoking_deaths;
+	ELSEIF NEW.deaths_by_smoking > @max_smoking_deaths then
+		set NEW.deaths_by_smoking = @max_smoking_deaths;
+	END IF;
+END;: 0 row(s) affected
+
+[17, 15:00:14] CREATE TRIGGER upd_check BEFORE UPDATE ON substance_deaths
+FOR EACH ROW
+BEGIN
+	IF NEW.deaths_by_smoking < @min_smoking_deaths then
+		set NEW.deaths_by_smoking = @min_smoking_deaths;
+	ELSEIF NEW.deaths_by_smoking > @max_smoking_deaths then
+		set NEW.deaths_by_smoking = @max_smoking_deaths;
+	END IF;
+END;: Running...
+[17, 15:00:14] CREATE TRIGGER upd_check BEFORE UPDATE ON substance_deaths
+FOR EACH ROW
+BEGIN
+	IF NEW.deaths_by_smoking < @min_smoking_deaths then
+		set NEW.deaths_by_smoking = @min_smoking_deaths;
+	ELSEIF NEW.deaths_by_smoking > @max_smoking_deaths then
+		set NEW.deaths_by_smoking = @max_smoking_deaths;
+	END IF;
+END;: 0 row(s) affected
+
+
+[199, 23:32:55] CREATE PROCEDURE substance_total_death(code VARCHAR(5))
+BEGIN
+    (select iso_code, sum(total_deaths) as total_deaths_by_substance_use from substance_deaths where iso_code = code group by iso_code);
+END: Running...
+[199, 23:32:55] CREATE PROCEDURE substance_total_death(code VARCHAR(5))
+BEGIN
+    (select iso_code, sum(total_deaths) as total_deaths_by_substance_use from substance_deaths where iso_code = code group by iso_code);
+END: 0 row(s) affected
+
+[203, 23:34:57] call substance_total_death('ITA'): Running...
+[203, 23:34:57] call substance_total_death('ITA'): Fetching...
+[203, 23:34:57] call substance_total_death('ITA'): 1 row(s) returned
+[204, 23:34:58] call substance_total_death('AFG'): Running...
+[204, 23:34:58] call substance_total_death('AFG'): Fetching...
+[204, 23:34:58] call substance_total_death('AFG'): 1 row(s) returned
+[205, 23:35:00] call substance_total_death('USA'): Running...
+[205, 23:35:00] call substance_total_death('USA'): Fetching...
+[205, 23:35:00] call substance_total_death('USA'): 1 row(s) returned
