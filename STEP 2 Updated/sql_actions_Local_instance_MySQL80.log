@@ -1,0 +1,331 @@
+[1, 22:58:19] CREATE TABLE countries(
+	iso_code VARCHAR(5),
+	name VARCHAR(50),
+	PRIMARY KEY (iso_code)
+): Running...
+[1, 22:58:19] CREATE TABLE countries(
+	iso_code VARCHAR(5),
+	name VARCHAR(50),
+	PRIMARY KEY (iso_code)
+): 0 row(s) affected
+[2, 22:58:19] CREATE TABLE continents(
+	continent_code VARCHAR(5),
+	name VARCHAR(50),
+	PRIMARY KEY (continent_code)
+): Running...
+[2, 22:58:19] CREATE TABLE continents(
+	continent_code VARCHAR(5),
+	name VARCHAR(50),
+	PRIMARY KEY (continent_code)
+): 0 row(s) affected
+[3, 22:58:19] CREATE TABLE locatedin(
+	iso_code VARCHAR(5),
+    continent_code VARCHAR(5) NOT NULL,
+	PRIMARY KEY (iso_code),
+    FOREIGN KEY (iso_code) REFERENCES countries (iso_code) ON DELETE CASCADE,
+    FOREIGN KEY (continent_code) REFERENCES continents (continent_code) ON DELETE CASCADE
+): Running...
+[3, 22:58:20] CREATE TABLE locatedin(
+	iso_code VARCHAR(5),
+    continent_code VARCHAR(5) NOT NULL,
+	PRIMARY KEY (iso_code),
+    FOREIGN KEY (iso_code) REFERENCES countries (iso_code) ON DELETE CASCADE,
+    FOREIGN KEY (continent_code) REFERENCES continents (continent_code) ON DELETE CASCADE
+): 0 row(s) affected
+[4, 22:58:20] CREATE TABLE health_deaths (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+	deaths_by_child_stunting INT,
+    deaths_by_meningitis INT,
+    deaths_by_cardiovascular_diseases INT,
+    deaths_by_chronic_respiratory_diseases INT,
+    deaths_by_hiv_aids INT,
+    deaths_by_high_systolic_blood_pressure INT,
+    deaths_by_low_birth_weight INT,
+    deaths_by_child_wasting INT,
+    deaths_by_unsafe_sex INT,
+    deaths_by_low_physical_activity INT,
+    deaths_by_high_fasting_plasma_glucose INT,
+    deaths_by_high_body_mass_index INT,
+    deaths_by_no_access_to_handwashing_facility INT,
+    deaths_by_low_bone_mineral_density INT,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): Running...
+[4, 22:58:20] CREATE TABLE health_deaths (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+	deaths_by_child_stunting INT,
+    deaths_by_meningitis INT,
+    deaths_by_cardiovascular_diseases INT,
+    deaths_by_chronic_respiratory_diseases INT,
+    deaths_by_hiv_aids INT,
+    deaths_by_high_systolic_blood_pressure INT,
+    deaths_by_low_birth_weight INT,
+    deaths_by_child_wasting INT,
+    deaths_by_unsafe_sex INT,
+    deaths_by_low_physical_activity INT,
+    deaths_by_high_fasting_plasma_glucose INT,
+    deaths_by_high_body_mass_index INT,
+    deaths_by_no_access_to_handwashing_facility INT,
+    deaths_by_low_bone_mineral_density INT,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): 0 row(s) affected
+[5, 22:58:20] CREATE TABLE diet_deaths (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+    deaths_by_nutritional_deficiencies INT,
+    deaths_by_protein_energy_malnutrition INT,
+    deaths_by_vitamin_A_deficiency INT,
+    deaths_by_discontinued_breastfeeding INT,
+    deaths_by_non_exclusive_breastfeeding INT,
+    deaths_by_iron_deficiency INT,
+    deaths_by_diet_high_in_sodium INT,
+    deaths_by_diet_low_in_whole_grains INT,
+    deaths_by_diet_low_in_fruits INT,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): Running...
+[5, 22:58:20] CREATE TABLE diet_deaths (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+    deaths_by_nutritional_deficiencies INT,
+    deaths_by_protein_energy_malnutrition INT,
+    deaths_by_vitamin_A_deficiency INT,
+    deaths_by_discontinued_breastfeeding INT,
+    deaths_by_non_exclusive_breastfeeding INT,
+    deaths_by_iron_deficiency INT,
+    deaths_by_diet_high_in_sodium INT,
+    deaths_by_diet_low_in_whole_grains INT,
+    deaths_by_diet_low_in_fruits INT,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): 0 row(s) affected
+[6, 22:58:20] CREATE TABLE nature_deaths (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+    deaths_by_outdoor_air_pollution INT,
+    deaths_by_unsafe_water_source INT,
+    deaths_by_household_air_pollution_from_solid_fuels INT,
+    deaths_by_air_pollution INT,
+    deaths_by_unsafe_sanitation INT,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): Running...
+[6, 22:58:20] CREATE TABLE nature_deaths (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+    deaths_by_outdoor_air_pollution INT,
+    deaths_by_unsafe_water_source INT,
+    deaths_by_household_air_pollution_from_solid_fuels INT,
+    deaths_by_air_pollution INT,
+    deaths_by_unsafe_sanitation INT,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): 0 row(s) affected
+[7, 22:58:20] CREATE TABLE substance_deaths (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+	deaths_by_tobacco INT,
+    deaths_by_drug_use INT,
+    deaths_by_alcohol_use INT,
+    deaths_by_smoking INT,
+    deaths_by_secondhand_smoke INT,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): Running...
+[7, 22:58:20] CREATE TABLE substance_deaths (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+	deaths_by_tobacco INT,
+    deaths_by_drug_use INT,
+    deaths_by_alcohol_use INT,
+    deaths_by_smoking INT,
+    deaths_by_secondhand_smoke INT,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): 0 row(s) affected
+[8, 22:58:20] CREATE TABLE emissions (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+    nitrogen_oxide_in_tonnes_NOx REAL,
+    sulphur_dioxide_in_tonnes_SO2 REAL,
+    carbon_monoxide_in_tonnes_CO REAL,
+    ammonia_in_tonnes_NH3 REAL,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): Running...
+[8, 22:58:20] CREATE TABLE emissions (
+	iso_code VARCHAR(5) NOT NULL,
+	year INT,
+    nitrogen_oxide_in_tonnes_NOx REAL,
+    sulphur_dioxide_in_tonnes_SO2 REAL,
+    carbon_monoxide_in_tonnes_CO REAL,
+    ammonia_in_tonnes_NH3 REAL,
+	PRIMARY KEY (iso_code, year),
+	FOREIGN KEY (iso_code) REFERENCES countries(iso_code) ON DELETE CASCADE
+): 0 row(s) affected
+[9, 22:59:05] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[9, 22:59:05] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[10, 22:59:05] SHOW DATABASES: Executing 
+[10, 22:59:05] SHOW DATABASES: OK
+[11, 22:59:07] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[11, 22:59:07] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[12, 22:59:07] SHOW COLUMNS FROM `cs_306`.`continents`: Executing 
+[12, 22:59:07] SHOW COLUMNS FROM `cs_306`.`continents`: OK
+[13, 22:59:09] PREPARE stmt FROM 'INSERT INTO `cs_306`.`continents` (`name`,`continent_code`) VALUES(?,?)': Executing 
+[13, 22:59:09] PREPARE stmt FROM 'INSERT INTO `cs_306`.`continents` (`name`,`continent_code`) VALUES(?,?)': OK
+[14, 22:59:09] DEALLOCATE PREPARE stmt: Executing 
+[14, 22:59:09] DEALLOCATE PREPARE stmt: OK
+[15, 22:59:18] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[15, 22:59:18] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[16, 22:59:18] SHOW DATABASES: Executing 
+[16, 22:59:18] SHOW DATABASES: OK
+[17, 22:59:18] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[17, 22:59:18] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[18, 22:59:18] SHOW COLUMNS FROM `cs_306`.`countries`: Executing 
+[18, 22:59:18] SHOW COLUMNS FROM `cs_306`.`countries`: OK
+[19, 22:59:23] PREPARE stmt FROM 'INSERT INTO `cs_306`.`countries` (`name`,`iso_code`) VALUES(?,?)': Executing 
+[19, 22:59:23] PREPARE stmt FROM 'INSERT INTO `cs_306`.`countries` (`name`,`iso_code`) VALUES(?,?)': OK
+[20, 22:59:23] DEALLOCATE PREPARE stmt: Executing 
+[20, 22:59:23] DEALLOCATE PREPARE stmt: OK
+[21, 22:59:38] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[21, 22:59:38] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[22, 22:59:38] SHOW DATABASES: Executing 
+[22, 22:59:38] SHOW DATABASES: OK
+[23, 22:59:39] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[23, 22:59:39] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[24, 22:59:39] SHOW COLUMNS FROM `cs_306`.`diet_deaths`: Executing 
+[24, 22:59:39] SHOW COLUMNS FROM `cs_306`.`diet_deaths`: OK
+[25, 23:00:13] PREPARE stmt FROM 'INSERT INTO `cs_306`.`diet_deaths` (`iso_code`,`year`,`deaths_by_nutritional_deficiencies`,`deaths_by_protein_energy_malnutrition`,`deaths_by_vitamin_A_deficiency`,`deaths_by_discontinued_breastfeeding`,`deaths_by_non_exclusive_breastfeeding`,`deaths_by_iron_deficiency`,`deaths_by_diet_high_in_sodium`,`deaths_by_diet_low_in_whole_grains`,`deaths_by_diet_low_in_fruits`) VALUES(?,?,?,?,?,?,?,?,?,?,?)': Executing 
+[25, 23:00:13] PREPARE stmt FROM 'INSERT INTO `cs_306`.`diet_deaths` (`iso_code`,`year`,`deaths_by_nutritional_deficiencies`,`deaths_by_protein_energy_malnutrition`,`deaths_by_vitamin_A_deficiency`,`deaths_by_discontinued_breastfeeding`,`deaths_by_non_exclusive_breastfeeding`,`deaths_by_iron_deficiency`,`deaths_by_diet_high_in_sodium`,`deaths_by_diet_low_in_whole_grains`,`deaths_by_diet_low_in_fruits`) VALUES(?,?,?,?,?,?,?,?,?,?,?)': OK
+[26, 23:00:41] DEALLOCATE PREPARE stmt: Executing 
+[26, 23:00:41] DEALLOCATE PREPARE stmt: OK
+[27, 23:00:56] select COUNT(*) from diet_deaths
+LIMIT 0, 1000
+: Running...
+[27, 23:00:56] select COUNT(*) from diet_deaths
+LIMIT 0, 1000
+: Fetching...
+[27, 23:00:56] select COUNT(*) from diet_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[28, 23:01:10] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[28, 23:01:10] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[29, 23:01:10] SHOW DATABASES: Executing 
+[29, 23:01:10] SHOW DATABASES: OK
+[30, 23:01:11] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[30, 23:01:11] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[31, 23:01:11] SHOW COLUMNS FROM `cs_306`.`emissions`: Executing 
+[31, 23:01:11] SHOW COLUMNS FROM `cs_306`.`emissions`: OK
+[32, 23:01:16] PREPARE stmt FROM 'INSERT INTO `cs_306`.`emissions` (`iso_code`,`year`,`nitrogen_oxide_in_tonnes_NOx`,`sulphur_dioxide_in_tonnes_SO2`,`carbon_monoxide_in_tonnes_CO`,`ammonia_in_tonnes_NH3`) VALUES(?,?,?,?,?,?)': Executing 
+[32, 23:01:16] PREPARE stmt FROM 'INSERT INTO `cs_306`.`emissions` (`iso_code`,`year`,`nitrogen_oxide_in_tonnes_NOx`,`sulphur_dioxide_in_tonnes_SO2`,`carbon_monoxide_in_tonnes_CO`,`ammonia_in_tonnes_NH3`) VALUES(?,?,?,?,?,?)': OK
+[33, 23:01:32] DEALLOCATE PREPARE stmt: Executing 
+[33, 23:01:32] DEALLOCATE PREPARE stmt: OK
+[34, 23:01:42] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[34, 23:01:42] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[35, 23:01:42] SHOW DATABASES: Executing 
+[35, 23:01:42] SHOW DATABASES: OK
+[36, 23:01:43] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[36, 23:01:43] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[37, 23:01:43] SHOW COLUMNS FROM `cs_306`.`health_deaths`: Executing 
+[37, 23:01:43] SHOW COLUMNS FROM `cs_306`.`health_deaths`: OK
+[38, 23:02:00] PREPARE stmt FROM 'INSERT INTO `cs_306`.`health_deaths` (`iso_code`,`year`,`deaths_by_meningitis`,`deaths_by_cardiovascular_diseases`,`deaths_by_chronic_respiratory_diseases`,`deaths_by_hiv_aids`,`deaths_by_high_systolic_blood_pressure`,`deaths_by_low_birth_weight`,`deaths_by_child_wasting`,`deaths_by_unsafe_sex`,`deaths_by_low_physical_activity`,`deaths_by_high_fasting_plasma_glucose`,`deaths_by_high_body_mass_index`,`deaths_by_no_access_to_handwashing_facility`,`deaths_by_low_bone_mineral_density`,`deaths_by_child_stunting`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)': Executing 
+[38, 23:02:00] PREPARE stmt FROM 'INSERT INTO `cs_306`.`health_deaths` (`iso_code`,`year`,`deaths_by_meningitis`,`deaths_by_cardiovascular_diseases`,`deaths_by_chronic_respiratory_diseases`,`deaths_by_hiv_aids`,`deaths_by_high_systolic_blood_pressure`,`deaths_by_low_birth_weight`,`deaths_by_child_wasting`,`deaths_by_unsafe_sex`,`deaths_by_low_physical_activity`,`deaths_by_high_fasting_plasma_glucose`,`deaths_by_high_body_mass_index`,`deaths_by_no_access_to_handwashing_facility`,`deaths_by_low_bone_mineral_density`,`deaths_by_child_stunting`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)': OK
+[39, 23:02:23] DEALLOCATE PREPARE stmt: Executing 
+[39, 23:02:23] DEALLOCATE PREPARE stmt: OK
+[40, 23:02:33] select COUNT(*) from health_deaths
+LIMIT 0, 1000
+: Running...
+[40, 23:02:33] select COUNT(*) from health_deaths
+LIMIT 0, 1000
+: Fetching...
+[40, 23:02:33] select COUNT(*) from health_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[41, 23:02:46] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[41, 23:02:46] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[42, 23:02:46] SHOW DATABASES: Executing 
+[42, 23:02:46] SHOW DATABASES: OK
+[43, 23:02:46] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[43, 23:02:46] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[44, 23:02:46] SHOW COLUMNS FROM `cs_306`.`locatedin`: Executing 
+[44, 23:02:46] SHOW COLUMNS FROM `cs_306`.`locatedin`: OK
+[45, 23:02:49] PREPARE stmt FROM 'INSERT INTO `cs_306`.`locatedin` (`iso_code`,`continent_code`) VALUES(?,?)': Executing 
+[45, 23:02:49] PREPARE stmt FROM 'INSERT INTO `cs_306`.`locatedin` (`iso_code`,`continent_code`) VALUES(?,?)': OK
+[46, 23:02:50] DEALLOCATE PREPARE stmt: Executing 
+[46, 23:02:50] DEALLOCATE PREPARE stmt: OK
+[47, 23:03:00] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[47, 23:03:00] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[48, 23:03:00] SHOW DATABASES: Executing 
+[48, 23:03:00] SHOW DATABASES: OK
+[49, 23:03:01] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[49, 23:03:01] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[50, 23:03:01] SHOW COLUMNS FROM `cs_306`.`nature_deaths`: Executing 
+[50, 23:03:01] SHOW COLUMNS FROM `cs_306`.`nature_deaths`: OK
+[51, 23:03:15] PREPARE stmt FROM 'INSERT INTO `cs_306`.`nature_deaths` (`iso_code`,`year`,`deaths_by_outdoor_air_pollution`,`deaths_by_unsafe_water_source`,`deaths_by_household_air_pollution_from_solid_fuels`,`deaths_by_air_pollution`,`deaths_by_unsafe_sanitation`) VALUES(?,?,?,?,?,?,?)': Executing 
+[51, 23:03:15] PREPARE stmt FROM 'INSERT INTO `cs_306`.`nature_deaths` (`iso_code`,`year`,`deaths_by_outdoor_air_pollution`,`deaths_by_unsafe_water_source`,`deaths_by_household_air_pollution_from_solid_fuels`,`deaths_by_air_pollution`,`deaths_by_unsafe_sanitation`) VALUES(?,?,?,?,?,?,?)': OK
+[52, 23:03:34] DEALLOCATE PREPARE stmt: Executing 
+[52, 23:03:34] DEALLOCATE PREPARE stmt: OK
+[53, 23:03:44] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[53, 23:03:44] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[54, 23:03:44] SHOW DATABASES: Executing 
+[54, 23:03:44] SHOW DATABASES: OK
+[55, 23:03:45] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[55, 23:03:45] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[56, 23:03:45] SHOW COLUMNS FROM `cs_306`.`substance_deaths`: Executing 
+[56, 23:03:45] SHOW COLUMNS FROM `cs_306`.`substance_deaths`: OK
+[57, 23:04:00] PREPARE stmt FROM 'INSERT INTO `cs_306`.`substance_deaths` (`iso_code`,`year`,`deaths_by_tobacco`,`deaths_by_drug_use`,`deaths_by_alcohol_use`,`deaths_by_secondhand_smoke`,`deaths_by_smoking`) VALUES(?,?,?,?,?,?,?)': Executing 
+[57, 23:04:00] PREPARE stmt FROM 'INSERT INTO `cs_306`.`substance_deaths` (`iso_code`,`year`,`deaths_by_tobacco`,`deaths_by_drug_use`,`deaths_by_alcohol_use`,`deaths_by_secondhand_smoke`,`deaths_by_smoking`) VALUES(?,?,?,?,?,?,?)': OK
+[58, 23:04:18] DEALLOCATE PREPARE stmt: Executing 
+[58, 23:04:18] DEALLOCATE PREPARE stmt: OK
+[59, 23:04:40] select count(*) from substance_deaths
+LIMIT 0, 1000
+: Running...
+[59, 23:04:40] select count(*) from substance_deaths
+LIMIT 0, 1000
+: Fetching...
+[59, 23:04:40] select count(*) from substance_deaths
+LIMIT 0, 1000
+: 1 row(s) returned
+[60, 23:05:38] select * from locatedin
+LIMIT 0, 1000
+: Running...
+[60, 23:05:38] select * from locatedin
+LIMIT 0, 1000
+: Fetching...
+[60, 23:05:38] select * from locatedin
+LIMIT 0, 1000
+: 226 row(s) returned
+[61, 23:05:53] select count(*) from locatedin
+LIMIT 0, 1000
+: Running...
+[61, 23:05:53] select count(*) from locatedin
+LIMIT 0, 1000
+: Fetching...
+[61, 23:05:53] select count(*) from locatedin
+LIMIT 0, 1000
+: 1 row(s) returned
+[62, 23:06:28] SELECT * FROM cs_306.locatedin
+LIMIT 0, 1000
+: Running...
+[62, 23:06:28] SELECT * FROM cs_306.locatedin
+LIMIT 0, 1000
+: Fetching...
+[62, 23:06:28] SELECT * FROM cs_306.locatedin
+LIMIT 0, 1000
+: 226 row(s) returned
+[63, 23:06:42] INSERT INTO locatedin VALUES ("MDG", "AF"): Running...
+[63, 23:06:42] INSERT INTO locatedin VALUES ("MDG", "AF"): 1 row(s) affected
+[64, 23:06:49] INSERT INTO locatedin VALUES ("SVN", "EU"): Running...
+[64, 23:06:49] INSERT INTO locatedin VALUES ("SVN", "EU"): 1 row(s) affected
+[65, 23:07:05] select count(*) from locatedin
+LIMIT 0, 1000
+: Running...
+[65, 23:07:05] select count(*) from locatedin
+LIMIT 0, 1000
+: Fetching...
+[65, 23:07:05] select count(*) from locatedin
+LIMIT 0, 1000
+: 1 row(s) returned
